@@ -1,0 +1,637 @@
+{
+  "Metadata": {
+    "title": "Abdul Rehman — Full Stack Software Developer (React · Next.js · TypeScript · Node.js)",
+    "description": "Portfolio of Abdul Rehman, a Full Stack Developer based in Riyadh building scalable web and mobile applications with React, Next.js, TypeScript, Node.js, PostgreSQL, MSSQL and modern AI-assisted workflows."
+  },
+  "Theme": {
+    "toggleDark": "Toggle dark mode",
+    "toggleLight": "Toggle light mode"
+  },
+  "Navbar": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "articles": "Articles",
+    "contactMe": "Contact",
+    "downloadCV": "Download CV"
+  },
+  "Hero": {
+    "availability": "Full Stack Developer · Based in Riyadh, Saudi Arabia",
+    "greeting": "Hey, I'm Abdul Rehman",
+    "roles": ["Software", "Full Stack", "React.js", "Next.js"],
+    "developer": "Developer",
+    "description": "Full Stack Developer with 4+ years of experience building scalable web and mobile applications using React, Next.js, TypeScript, Node.js, Nest.js, PostgreSQL and MSSQL — with modern AI-assisted workflows baked in. Let's build something great together.",
+    "downloadCV": "Download CV",
+    "viewWork": "View My Work",
+    "scrollHint": "Scroll to explore"
+  },
+  "Skills": {
+    "mySkills": "Technologies I Work With",
+    "myExpertise": "My Expertise",
+    "subtitle": "A full-stack toolkit spanning frontend, backend, databases, mobile and AI-assisted development — honed across production systems for Saudi-based clients.",
+    "skillsLabel": "Skills",
+    "areasLabel": "Areas",
+    "coreStack": "Core Stack",
+    "note": "A full-stack toolkit spanning frontend, backend, databases, mobile and AI-assisted development — honed across production systems for Saudi-based clients.",
+    "categories": [
+      {
+        "title": "Frontend & Mobile",
+        "icon": "react",
+        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Material UI", "React Native"]
+      },
+      {
+        "title": "Backend & APIs",
+        "icon": "server",
+        "skills": ["Node.js", "Express", "Nest.js", "REST API Design"]
+      },
+      {
+        "title": "Databases & ORM",
+        "icon": "database",
+        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM"]
+      },
+      {
+        "title": "AI & Agentic Development",
+        "icon": "ai",
+        "skills": ["LLM Integration", "Model Context Protocol (MCP)", "Prompt Engineering", "RAG Fundamentals"]
+      },
+      {
+        "title": "Tools & Practices",
+        "icon": "tools",
+        "skills": ["Git & GitHub", "GitLab", "i18n / RTL", "SEO", "Agile Collaboration"]
+      }
+    ]
+  },
+  "Services": {
+    "title": "What I Do",
+    "heading": "Full-Stack Services",
+    "subtitle": "From database to pixels — I design, build and ship complete products across the full stack, with AI-assisted workflows that keep delivery fast.",
+    "processTitle": "How I Work",
+    "cta": "Let's Talk",
+    "items": [
+      {
+        "title": "Full-Stack Web Development",
+        "description": "End-to-end features spanning frontend, backend and database layers — delivered as scalable, production-ready systems.",
+        "icon": "react"
+      },
+      {
+        "title": "React & Next.js Frontends",
+        "description": "Fast, responsive interfaces built with React, Next.js and TypeScript, with careful attention to UX, RTL and consistency.",
+        "icon": "code"
+      },
+      {
+        "title": "Backend APIs & Integrations",
+        "description": "Clean, reliable REST APIs in Node.js, Express and Nest.js — with authentication, authorization and business logic.",
+        "icon": "server"
+      },
+      {
+        "title": "Database Design & ORM",
+        "description": "Data modeled and stored in PostgreSQL, MSSQL and MongoDB, accessed through type-safe Prisma queries.",
+        "icon": "database"
+      },
+      {
+        "title": "AI-Assisted & LLM Development",
+        "description": "LLM integration via MCP, prompt engineering and agentic AI workflows that ship features faster without cutting corners.",
+        "icon": "ai"
+      },
+      {
+        "title": "Mobile (React Native)",
+        "description": "iOS and Android apps from the same React knowledge base, wired to the same backend APIs for consistent data.",
+        "icon": "mobile"
+      },
+      {
+        "title": "Performance & SEO",
+        "description": "Faster loads, better indexing and consistent cross-browser behavior so your product reaches more users.",
+        "icon": "speed"
+      },
+      {
+        "title": "Code Review & Mentoring",
+        "description": "Constructive reviews and patient guidance that raise code quality and developer confidence.",
+        "icon": "mentor"
+      }
+    ],
+    "processSteps": [
+      {
+        "step": "01",
+        "title": "Discover",
+        "description": "We clarify your goals, users and requirements before a single line of code is written."
+      },
+      {
+        "step": "02",
+        "title": "Design",
+        "description": "I translate insights into clean, responsive interface structures and interaction flows."
+      },
+      {
+        "step": "03",
+        "title": "Build",
+        "description": "I develop scalable components with clean code, testing key flows and performance."
+      },
+      {
+        "step": "04",
+        "title": "Deliver",
+        "description": "We launch, review and iterate together to keep improving the product."
+      }
+    ]
+  },
+  "Experience": {
+    "title": "Career Path",
+    "heading": "Experience & Work History",
+    "subtitle": "Roles where I designed, built and shipped full-stack software for real production users.",
+    "items": [
+      {
+        "role": "Full Stack Developer",
+        "company": "GST (Global Standard Technology)",
+        "location": "Riyadh, Saudi Arabia",
+        "period": "Jul 2026 – Present",
+        "points": [
+          "Developed and maintained full-stack applications with React.js, Next.js, Node.js, TypeScript, Express, Prisma and MSSQL.",
+          "Designed and implemented backend APIs, database operations, authentication and business logic end-to-end.",
+          "Optimized application performance and reliability, and collaborated to ship scalable, production-ready solutions."
+        ]
+      },
+      {
+        "role": "Software Developer",
+        "company": "Code Frenetics",
+        "location": "Rawalpindi, Pakistan",
+        "period": "Aug 2024 – Jun 2026",
+        "points": [
+          "Built new features and optimized a CMS and multiple Next.js applications using React.js and Tailwind CSS.",
+          "Implemented backend data layers with Nest.js, Express, Prisma, PostgreSQL and MSSQL, designing and consuming REST APIs.",
+          "Adopted AI-assisted workflows (Claude Code, Cursor, GitHub Copilot) and prompt engineering to accelerate delivery."
+        ]
+      },
+      {
+        "role": "Frontend Developer",
+        "company": "Nartech Solutions",
+        "location": "Riyadh, Saudi Arabia",
+        "period": "Apr 2023 – May 2024",
+        "points": [
+          "Delivered responsive interfaces for Saudi-based clients, building a reusable React.js component library in Tailwind CSS and Material UI.",
+          "Implemented key UI features that measurably improved usability and adoption for clients operating within the Kingdom.",
+          "Gained first-hand experience with Arabic / RTL-ready UI and Saudi market expectations for localized products."
+        ]
+      },
+      {
+        "role": "Web Development Intern",
+        "company": "BingTechs Solutions",
+        "location": "Pakistan",
+        "period": "Nov 2022 – Feb 2023",
+        "points": [
+          "Built interactive web interfaces with HTML, CSS and JavaScript under senior developer mentorship.",
+          "Learned and applied best practices for clean, maintainable frontend code."
+        ]
+      }
+    ]
+  },
+  "About": {
+    "sectionTitle": "About",
+    "heading": "About Me",
+    "description1": "Full Stack Developer with 4+ years of experience building scalable, high-performance web and mobile applications for companies in Saudi Arabia and beyond.",
+    "description2": "Skilled in modern AI-assisted development — agentic AI workflows, LLM integration via MCP and prompt engineering — committed to clean code, seamless UX and Saudi Vision 2030.",
+    "learnMore": "More About Me",
+    "stats": [
+      { "value": "4+", "label": "Years Experience" },
+      { "value": "15+", "label": "Projects Completed" },
+      { "value": "20+", "label": "Features Shipped" }
+    ]
+  },
+  "Portfolio": {
+    "title": "Production Systems",
+    "heading": "Featured Projects",
+    "subtitle": "Production systems I designed and shipped end-to-end for clients across Saudi Arabia.",
+    "githubButton": "Visit My GitHub",
+    "viewAll": "View All Projects",
+    "details": "Details",
+    "liveDemo": "Live Demo",
+    "dragHint": "Scroll to explore",
+    "projects": [
+      {
+        "title": "GTrack E-Signature Platform",
+        "description": "A full-stack e-signature platform enabling secure digital document signing and workflow management, with role-based access for signers and administrators.",
+        "link": "View on GitHub",
+        "image": "keeper",
+        "slug": "gtrack-esignature"
+      },
+      {
+        "title": "Groute Admin Panel",
+        "description": "An operations admin dashboard backed by an Express API with Prisma and MSSQL, extended to mobile with a companion React Native app.",
+        "link": "View on GitHub",
+        "image": "facility",
+        "slug": "groute-admin"
+      },
+      {
+        "title": "Trust Corners",
+        "description": "A public website and separate role-based admin dashboard for a Saudi client, built with Next.js and TypeScript over Nest.js and PostgreSQL.",
+        "link": "View on GitHub",
+        "image": "code",
+        "slug": "trust-corners"
+      },
+      {
+        "title": "RS Flavour",
+        "description": "A responsive e-commerce platform with an integrated payment gateway and secure APIs for order and transaction management.",
+        "link": "View on GitHub",
+        "image": "smartphone",
+        "slug": "rs-flavour"
+      },
+      {
+        "title": "Innovazy Suite",
+        "description": "Dynamic, responsive React interfaces with on-page SEO and accessibility best practices to boost search visibility.",
+        "link": "View on GitHub",
+        "image": "atom",
+        "slug": "innovazy-suite"
+      },
+      {
+        "title": "KNK Associates",
+        "description": "An admin panel and public website managing sales, purchases and Bill of Quantities, backed by an Express and MongoDB API.",
+        "link": "View on GitHub",
+        "image": "queue",
+        "slug": "knk-associates"
+      },
+      {
+        "title": "Innovazy Website",
+        "description": "A responsive React website with on-page SEO and accessibility focus for consistent cross-browser performance.",
+        "link": "View on GitHub",
+        "image": "gitbranch",
+        "slug": "innovazy-website"
+      }
+    ]
+  },
+  "Testimonials": {
+    "title": "Client Feedback",
+    "heading": "Customer Feedback",
+    "subtitle": "Kind words from the people I've had the pleasure of working with.",
+    "list": [
+      {
+        "description": "I've had a wonderful experience with the services provided. They were professional, responsive, and exceeded my expectations. Highly recommended!",
+        "authorName": "Alice Johnson",
+        "authorDesignation": "Satisfied Customer",
+        "photourl": "https://randomuser.me/api/portraits/men/43.jpg"
+      },
+      {
+        "description": "The team was fantastic to work with. They delivered exceptional results and made the entire process seamless. I couldn't be happier with the outcome!",
+        "authorName": "David Smith",
+        "authorDesignation": "Happy Customer",
+        "photourl": "https://randomuser.me/api/portraits/men/9.jpg"
+      },
+      {
+        "description": "I'm thoroughly impressed by the professionalism and expertise demonstrated. They provided top-notch service from start to finish. Would definitely work with them again!",
+        "authorName": "Emily Brown",
+        "authorDesignation": "Delighted Customer",
+        "photourl": "https://randomuser.me/api/portraits/men/61.jpg"
+      },
+      {
+        "description": "Abdul turned our vague idea into a working product in record time. His attention to detail made a real difference to our launch.",
+        "authorName": "Michael Chen",
+        "authorDesignation": "Product Manager",
+        "photourl": "https://randomuser.me/api/portraits/men/52.jpg"
+      },
+      {
+        "description": "Responsive, fast and easy to work with. Every deadline was met and the code quality was consistently high.",
+        "authorName": "Sarah Patel",
+        "authorDesignation": "Startup Founder",
+        "photourl": "https://randomuser.me/api/portraits/women/65.jpg"
+      },
+      {
+        "description": "We've shipped several features with Abdul's help. Clear communication and dependable delivery every single time.",
+        "authorName": "James Wilson",
+        "authorDesignation": "Tech Lead",
+        "photourl": "https://randomuser.me/api/portraits/men/32.jpg"
+      },
+      {
+        "description": "Abdul communicates clearly and ships on time. He refactored our aging frontend and the result was noticeably faster and far easier to maintain.",
+        "authorName": "Priya Nair",
+        "authorDesignation": "Engineering Manager",
+        "photourl": "https://randomuser.me/api/portraits/women/44.jpg"
+      },
+      {
+        "description": "He helped our team adopt React best practices with patience and clarity. The mentoring sessions were genuinely valuable for the whole squad.",
+        "authorName": "Omar Farooq",
+        "authorDesignation": "Junior Developer",
+        "photourl": "https://randomuser.me/api/portraits/men/22.jpg"
+      }
+    ]
+  },
+  "Articles": {
+    "title": "From the Blog",
+    "heading": "Latest Articles",
+    "subtitle": "Notes on frontend development, React and the little things that make the web better.",
+    "readMore": "Read Article",
+    "backToArticles": "Back to Articles",
+    "notFound": "Article not found",
+    "items": [
+      {
+        "slug": "react-performance-tips",
+        "title": "React Performance Tips Every Developer Should Know",
+        "tagline": "Simple, practical optimizations that make React apps feel snappier.",
+        "category": "React",
+        "date": "Aug 12, 2026",
+        "excerpt": "From memoization to lazy loading — a practical checklist for keeping React apps fast without over-engineering.",
+        "content": [
+          "React is fast by default, but real-world apps accumulate slow spots. The good news is that most performance issues come from a handful of common patterns.",
+          "Start by re-rendering less. Use memo() for heavy components, keep state as local as possible, and lift derived state into selectors where it makes sense.",
+          "Next, split your bundles. React.lazy and dynamic imports let users download only the code they need for the page they're on.",
+          "Finally, measure. Profile with React DevTools before optimizing so you fix real bottlenecks instead of guessing."
+        ]
+      },
+      {
+        "slug": "responsive-layouts",
+        "title": "Responsive Layouts: Mobile-First Done Right",
+        "tagline": "A practical guide to designing for every screen.",
+        "category": "CSS",
+        "date": "Jul 28, 2026",
+        "excerpt": "Mobile-first isn't just a slogan. It's a workflow that produces simpler, faster and more flexible interfaces.",
+        "content": [
+          "Designing mobile-first forces you to focus on the content that truly matters before adding enhancements for larger screens.",
+          "Use fluid units, flexible grids and modern CSS like grid and flexbox to let layouts adapt naturally instead of fighting with media queries everywhere.",
+          "Test on real devices early. Emulators help, but touch targets, font sizes and load time are best judged on actual hardware.",
+          "Remember that responsive design is also about performance — smaller screens often mean slower connections."
+        ]
+      },
+      {
+        "slug": "modern-css-tips",
+        "title": "Modern CSS Tips That Save Real Development Time",
+        "tagline": "Little-known tricks for cleaner, shorter stylesheets.",
+        "category": "CSS",
+        "date": "Jul 9, 2026",
+        "excerpt": "Cascade layers, container queries and logical properties — modern CSS is quietly making frontend work much easier.",
+        "content": [
+          "The modern CSS feature set has grown a lot: logical properties replace physical ones for effortless RTL support.",
+          "Container queries let components respond to their own width rather than the viewport, unlocking truly reusable cards and layouts.",
+          "Cascade layers give you predictable control over specificity, so overrides and design tokens are easier to manage.",
+          "Taken together, these features translate to less code, fewer bugs and faster feature work."
+        ]
+      },
+      {
+        "slug": "use-effect-patterns",
+        "title": "useEffect Patterns That Won't Bite You",
+        "tagline": "A clear mental model for effects and dependencies.",
+        "category": "React",
+        "date": "Jun 18, 2026",
+        "excerpt": "Effects run after render — understand when they fire, why they re-run, and how to keep them predictable.",
+        "content": [
+          "useEffect runs after the browser paints, not during render. That timing matters: side effects belong here, while derived values belong in render or in lazy state initialization.",
+          "The dependency array is a contract, not a chore. Every value you read from the component scope should be listed, so your effect never reads stale data.",
+          "When a value changes often, consider whether the work belongs in an effect at all — event handlers and refs often keep logic simpler and closer to the user action.",
+          "And remember: effects are easy to start and easy to get wrong. A little discipline up front saves hours of head-scratching bugs."
+        ]
+      },
+      {
+        "slug": "css-grid-vs-flexbox",
+        "title": "CSS Grid vs Flexbox: When to Reach for Each",
+        "tagline": "Two layout systems, two mental models — pick the right tool.",
+        "category": "CSS",
+        "date": "May 30, 2026",
+        "excerpt": "Grid is for two-dimensional layouts, flexbox is for one. Here's a practical way to decide.",
+        "content": [
+          "Ask one question first: does your layout flow in one direction or two? Letterbox containers and navs are often flexbox; entire pages and card walls are usually grid.",
+          "Grid excels at aligning rows AND columns, so gaps, tracks and placement become explicit and predictable.",
+          "Flexbox excels at distributing space within a single axis — wrapping chips, centering a button, stretching a footer.",
+          "The best pages use both. Start with grid for the page skeleton, then let flexbox arrange the pieces inside."
+        ]
+      },
+      {
+        "slug": "design-systems",
+        "title": "Building a Small Design System That Scales",
+        "tagline": "Tokens, components and docs your team will actually use.",
+        "category": "Frontend",
+        "date": "May 12, 2026",
+        "excerpt": "You don't need a huge enterprise library — a small, disciplined system beats a sprawling one.",
+        "content": [
+          "Start with tokens, not components. Colors, spacing, type and radii expressed once make every later decision consistent.",
+          "Build the boring primitives first: buttons, inputs, cards and headings that every screen depends on.",
+          "Document usage with real examples. A component without guidance gets misused; guidance without examples gets ignored.",
+          "Evolve it like software — review, refactor and version it, and your design system pays for itself within a few releases."
+        ]
+      }
+    ]
+  },
+  "Contact": {
+    "title": "Get In Touch",
+    "heading": "Contact Me",
+    "formTitle": "Send a message",
+    "description": "Feel free to reach out to me with any inquiries or questions. I'm happy to help.",
+    "infoTitle": "Let's build something great together",
+    "infoNote": "Based in Riyadh — available for full-time roles and freelance projects. I'd love to hear from you.",
+    "phoneLabel": "Phone / WhatsApp",
+    "emailLabel": "Email",
+    "websiteLabel": "Website",
+    "locationLabel": "Based in",
+    "location": "Al Narjis, Riyadh, Saudi Arabia",
+    "replyNote": "I usually reply within 24 hours.",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "chooseTopic": "Choose a topic",
+    "selectOne": "Select One ...",
+    "topics": {
+      "frontend": "Front-end Development",
+      "react": "React Development",
+      "web": "Web Development Inquiry",
+      "collab": "Project Collaboration",
+      "general": "General Inquiry"
+    },
+    "message": "Message",
+    "placeholderMessage": "Type your message...",
+    "acceptTerms": "Check to accept terms.",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "success": "Message sent successfully!",
+    "error": "Failed to send the message, please try again.",
+    "sendAnother": "Send another message"
+  },
+  "Projects": {
+    "title": "Projects",
+    "heading": "Featured Projects",
+    "subtitle": "Production systems I've designed and delivered — from e-signature platforms and admin dashboards to e-commerce and client websites.",
+    "stackLabel": "Tech Stack",
+    "overviewLabel": "Overview",
+    "featuresLabel": "Key Features",
+    "sourceCode": "Source Code",
+    "liveDemo": "Live Demo",
+    "back": "Back to Projects",
+    "notFound": "Project not found",
+    "items": [
+      {
+        "slug": "gtrack-esignature",
+        "title": "GTrack E-Signature Platform",
+        "tagline": "Secure digital signing & workflow management",
+        "overview": "A full-stack e-signature platform enabling secure digital document signing and workflow management. The React frontend is paired with an Express and Prisma backend over MSSQL, with authentication and role-based access for both signers and administrators.",
+        "features": [
+          "Secure digital document signing and management",
+          "Authentication and role-based access control",
+          "Type-safe data access with Prisma ORM over MSSQL"
+        ]
+      },
+      {
+        "slug": "groute-admin",
+        "title": "Groute Admin Panel",
+        "tagline": "Operations dashboard with a React Native companion app",
+        "overview": "An operations admin dashboard for managing day-to-day business workflows, backed by an Express API with Prisma and MSSQL. A companion React Native mobile app extends the core features to Android and iOS while sharing the same APIs for consistent data.",
+        "features": [
+          "Comprehensive operations admin dashboard",
+          "Companion React Native mobile app",
+          "Shared REST API keeps web and mobile in sync"
+        ]
+      },
+      {
+        "slug": "trust-corners",
+        "title": "Trust Corners",
+        "tagline": "Public website + role-based admin dashboard",
+        "overview": "A platform for a Saudi client with a public marketing website and a separate, role-based admin dashboard for administrators and end users. The responsive frontend is built in Next.js and TypeScript, integrated with a Nest.js backend on PostgreSQL.",
+        "features": [
+          "Responsive public website and admin dashboard",
+          "Role-based access for different user types",
+          "Next.js + TypeScript with Nest.js and PostgreSQL"
+        ]
+      },
+      {
+        "slug": "rs-flavour",
+        "title": "RS Flavour",
+        "tagline": "E-commerce with payment gateway integration",
+        "overview": "A responsive e-commerce platform with an integrated payment gateway and secure APIs for order and transaction management. The checkout flow was optimized end-to-end for a smooth, reliable purchase experience.",
+        "features": [
+          "Integrated payment gateway",
+          "Secure order and transaction APIs",
+          "Optimized, responsive checkout flow"
+        ]
+      },
+      {
+        "slug": "innovazy-suite",
+        "title": "Innovazy Suite",
+        "tagline": "Dynamic, SEO-optimized React interfaces",
+        "overview": "A suite of dynamic, responsive React interfaces with on-page SEO best practices applied throughout — optimized metadata, accessibility and semantic structure to improve search visibility and cross-browser performance.",
+        "features": [
+          "Dynamic, responsive React interfaces",
+          "On-page SEO and accessibility best practices",
+          "Improved search visibility and performance"
+        ]
+      },
+      {
+        "slug": "knk-associates",
+        "title": "KNK Associates",
+        "tagline": "Sales, purchase & BoQ management platform",
+        "overview": "An admin panel and public website for managing sales, purchases and Bills of Quantities (BoQ). Built with a Next.js and TypeScript frontend backed by an Express and MongoDB API, bringing order data under one clear interface.",
+        "features": [
+          "Sales and purchase management",
+          "Bill of Quantities (BoQ) tracking",
+          "Next.js + TypeScript with Express and MongoDB"
+        ]
+      },
+      {
+        "slug": "innovazy-website",
+        "title": "Innovazy Website",
+        "tagline": "Responsive React website with on-page SEO",
+        "overview": "A responsive React website with a strong focus on on-page SEO and accessibility, delivering consistent, high-performance experiences across browsers and devices.",
+        "features": [
+          "Responsive, performant React frontend",
+          "On-page SEO and accessibility focus",
+          "Consistent cross-browser experience"
+        ]
+      }
+    ]
+  },
+  "AboutPage": {
+    "title": "About Me",
+    "heading": "Building full-stack software that ships",
+    "intro": "I'm Abdul Rehman, a Full Stack Developer based in Riyadh with 4+ years of experience engineering scalable web and mobile applications. I work across React, Next.js, TypeScript, Node.js, Nest.js, PostgreSQL and MSSQL — and I apply modern AI-assisted workflows to ship high-quality features faster.",
+    "statsTitle": "At a glance",
+    "educationTitle": "Education",
+    "experienceTitle": "Experience",
+    "skillsTitle": "What I work with",
+    "detailsTitle": "Details",
+    "details": [
+      { "label": "Nationality", "value": "Pakistani" },
+      { "label": "Iqama Status", "value": "Transferable" },
+      { "label": "Availability", "value": "Immediate" },
+      { "label": "Based in", "value": "Al Narjis, Riyadh, KSA" }
+    ],
+    "languagesTitle": "Languages",
+    "languages": [
+      { "name": "English", "level": "Professional" },
+      { "name": "Urdu", "level": "Native" },
+      { "name": "Arabic", "level": "Basic" }
+    ],
+    "certificationsTitle": "Certifications & Professional Development",
+    "certifications": [
+      { "title": "Complete Full-Stack Web Development Bootcamp", "org": "Udemy (Dr. Angela Yu)" },
+      { "title": "Frontend Development Specialization", "org": "Coursera" },
+      { "title": "Volunteer Web Developer", "org": "Microsoft Student Society (ICUP)" }
+    ],
+    "education": [
+      {
+        "institution": "Islamia College University, Peshawar",
+        "degree": "Bachelor of Software Engineering",
+        "period": "2019 – 2023",
+        "description": "Strong foundation in software engineering, algorithms, databases and web technologies, applied to real-world projects."
+      }
+    ],
+    "experience": [
+      {
+        "role": "Full Stack Developer",
+        "company": "GST (Global Standard Technology)",
+        "period": "Jul 2026 – Present",
+        "description": "Developing and maintaining full-stack applications end-to-end with React.js, Next.js, Node.js, TypeScript, Express, Prisma and MSSQL."
+      },
+      {
+        "role": "Software Developer",
+        "company": "Code Frenetics",
+        "period": "Aug 2024 – Jun 2026",
+        "description": "Delivered features across a CMS and multiple Next.js apps, with backend data layers in Nest.js, Express, Prisma, PostgreSQL and MSSQL."
+      },
+      {
+        "role": "Frontend Developer",
+        "company": "Nartech Solutions",
+        "period": "Apr 2023 – May 2024",
+        "description": "Built reusable React.js component libraries and responsive, RTL-ready interfaces for Saudi-based clients."
+      },
+      {
+        "role": "Web Development Intern",
+        "company": "BingTechs Solutions",
+        "period": "Nov 2022 – Feb 2023",
+        "description": "Created interactive web interfaces with HTML, CSS and JavaScript under senior developer mentorship."
+      }
+    ],
+    "tools": [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "Tailwind CSS",
+      "Material UI",
+      "React Native",
+      "Node.js",
+      "Express",
+      "Nest.js",
+      "PostgreSQL",
+      "MS SQL Server",
+      "MongoDB",
+      "Prisma ORM",
+      "LLM & MCP Integration",
+      "Prompt Engineering",
+      "Git & GitHub",
+      "i18n / RTL",
+      "REST APIs",
+      "SEO"
+    ],
+    "ctaTitle": "Have a project in mind?",
+    "ctaDescription": "Let's talk about how I can help bring it to life.",
+    "ctaButton": "Get In Touch"
+  },
+  "Footer": {
+    "description": "Full Stack Developer based in Riyadh — building scalable web and mobile applications with React, Next.js, TypeScript, Node.js and modern AI-assisted workflows.",
+    "madeWith": "Made with 💖 by Abdul Rehman"
+  },
+  "Languages": {
+    "chooseLanguage": "Choose language",
+    "options": {
+      "en": "English",
+      "ur": "Urdu",
+      "ar": "Arabic"
+    }
+  },
+  "Whatsapp": {
+    "label": "Chat on WhatsApp",
+    "message": "Hello! I came across your portfolio and would love to discuss a project."
+  }
+}
