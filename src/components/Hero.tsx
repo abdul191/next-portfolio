@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {
   FaArrowDown,
+  FaArrowRight,
   FaDownload,
   FaGithub,
   FaLinkedin,
@@ -30,8 +31,8 @@ const CORE_STACK = ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'];
 
 const ORBITS = [
   {label: 'React.js', dot: 'bg-cyan-400', delay: 0},
-  {label: 'MERN', dot: 'bg-emerald-400', delay: 5},
-  {label: 'Responsive', dot: 'bg-violet-400', delay: 10}
+  {label: 'Next.js', dot: 'bg-emerald-400', delay: 5},
+  {label: 'Node.js', dot: 'bg-violet-400', delay: 10}
 ];
 
 const ORBIT_CSS = 'orbit 15s linear infinite';
@@ -105,7 +106,7 @@ export default function Hero() {
           >
             <p className="text-2xl font-bold sm:text-3xl">
               <span className="text-gradient">{text}</span>
-              <span className="ml-0.5 inline-block animate-pulse text-primary">|</span>
+              <span className="ml-0.5 inline-block h-[1.1em] w-[3px] translate-y-[0.12em] animate-pulse rounded-full bg-primary align-middle" />
             </p>
           </div>
 
@@ -131,7 +132,7 @@ export default function Hero() {
               {t('downloadCV')}
             </a>
             <Link href="/projects" className="btn-outline">
-              <FaGithub className="h-4 w-4" />
+              <FaArrowRight className="h-4 w-4" />
               {t('viewWork')}
             </Link>
           </div>
@@ -169,7 +170,13 @@ export default function Hero() {
 
         <div className="flex justify-center">
           <div className="relative">
-            <div className="pointer-events-none absolute -inset-4 -z-10 animate-slow-spin rounded-[2.5rem] bg-[conic-gradient(from_0deg,#6366f1,#22d3ee,#a78bfa,#3b82f6,#6366f1)] opacity-50 blur-[6px]" />
+            <div
+              className="pointer-events-none absolute -inset-4 -z-10 animate-slow-spin rounded-[2.5rem] blur-[6px] transition-opacity duration-500"
+              style={{
+                backgroundImage: 'var(--hero-gradient)',
+                opacity: 'var(--hero-glow-opacity)'
+              }}
+            />
 
             <div className="relative aspect-square w-72 overflow-hidden sm:w-80 lg:w-96">
               <Image

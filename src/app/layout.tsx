@@ -27,9 +27,9 @@ const notoSansArabic = Noto_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  title: 'Abdul Rehman — Frontend & React Developer',
+  title: 'Abdul Rehman — Full Stack Software Developer',
   description:
-    'Portfolio of Abdul Rehman, a skilled Frontend & React.js Developer passionate about building engaging digital experiences.'
+    'Portfolio of Abdul Rehman, a Full Stack Developer based in Riyadh building scalable web and mobile applications with React, Next.js, TypeScript, Node.js, PostgreSQL and MSSQL.'
 };
 
 export default function RootLayout({
