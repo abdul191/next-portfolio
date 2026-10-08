@@ -14,7 +14,6 @@ import {
 } from 'react-icons/fa';
 import {heroImage} from '@/data/project-images';
 import {site} from '@/data/site';
-import LottieAnimation from './LottieAnimation';
 
 const SOCIALS = [
   {href: site.github, icon: FaGithub, label: 'GitHub'},
@@ -170,7 +169,6 @@ export default function Hero() {
 
         <div className="flex justify-center">
           <div className="relative">
-            <LottieAnimation className="absolute left-1/2 top-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 opacity-50 sm:h-[26rem] sm:w-[26rem]" />
             <div className="pointer-events-none absolute -inset-4 -z-10 animate-slow-spin rounded-[2.5rem] bg-[conic-gradient(from_0deg,#6366f1,#22d3ee,#a78bfa,#3b82f6,#6366f1)] opacity-50 blur-[6px]" />
 
             <div className="relative aspect-square w-72 overflow-hidden rounded-3xl border border-white/25 bg-[radial-gradient(circle_at_50%_32%,#eef2ff_0%,#c7d2fe_52%,#a5b4fc_100%)] p-1.5 shadow-2xl sm:w-80 lg:w-96">
