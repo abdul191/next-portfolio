@@ -1,5 +1,11 @@
 import type {Metadata} from 'next';
-import {Inter, JetBrains_Mono, Noto_Sans_Arabic, Space_Grotesk} from 'next/font/google';
+import {
+  Cairo,
+  Inter,
+  JetBrains_Mono,
+  Noto_Nastaliq_Urdu,
+  Space_Grotesk
+} from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
@@ -20,8 +26,14 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap'
 });
 
-const notoSansArabic = Noto_Sans_Arabic({
-  variable: '--font-noto-arabic',
+const cairo = Cairo({
+  variable: '--font-arabic',
+  subsets: ['arabic'],
+  display: 'swap'
+});
+
+const notoNastaliq = Noto_Nastaliq_Urdu({
+  variable: '--font-urdu',
   subsets: ['arabic'],
   display: 'swap'
 });
@@ -41,7 +53,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${notoSansArabic.variable}`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${cairo.variable} ${notoNastaliq.variable}`}
     >
       <body className="font-sans antialiased">{children}</body>
     </html>

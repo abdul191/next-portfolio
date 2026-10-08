@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), var(--font-noto-arabic), ui-sans-serif, system-ui,
+  --font-sans: var(--font-inter), var(--font-arabic), ui-sans-serif, system-ui,
     sans-serif;
-  --font-heading: var(--font-space-grotesk), var(--font-noto-arabic), ui-sans-serif,
+  --font-heading: var(--font-space-grotesk), var(--font-arabic), ui-sans-serif,
     system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
@@ -294,5 +294,51 @@
   .animate-orbit,
   .animate-orbit-rev {
     animation: none;
+  }
+}
+
+@layer utilities {
+  /* Arabic & Urdu: the script is cursive, so tight/wide letter-spacing hurts it */
+  [dir="rtl"],
+  [dir="rtl"] * {
+    letter-spacing: 0;
+  }
+
+  [dir="rtl"] :is(h1, h2, h3, h4, .font-heading) {
+    line-height: 1.35;
+  }
+
+  /* Urdu uses Noto Nastaliq Urdu (calligraphic, tall) — swap the Arabic font
+     and give it extra line-height so ascending/descending strokes don't collide */
+  [lang="ur"],
+  [lang="ur"] * {
+    line-height: 1.9;
+  }
+
+  [lang="ur"] {
+    font-family: var(--font-inter), var(--font-urdu), var(--font-arabic),
+      ui-sans-serif, system-ui, sans-serif;
+  }
+
+  [lang="ur"] :is(h1, h2, h3, h4, .font-heading) {
+    font-family: var(--font-space-grotesk), var(--font-urdu), var(--font-arabic),
+      ui-sans-serif, system-ui, sans-serif;
+    line-height: 2.1;
+  }
+
+  /* Arabic script reads lighter than Latin at the same weight, so nudge it up */
+  [lang="ar"],
+  [lang="ur"] {
+    font-weight: 500;
+  }
+
+  [lang="ar"] .font-medium,
+  [lang="ur"] .font-medium {
+    font-weight: 600;
+  }
+
+  /* Nastaliq tops out at 700, so lift lighter Urdu headings to the heaviest step */
+  [lang="ur"] :is(h1, h2, h3, h4, .font-heading) {
+    font-weight: 700;
   }
 }

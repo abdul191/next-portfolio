@@ -14,7 +14,9 @@
     "projects": "المشاريع",
     "articles": "المقالات",
     "contactMe": "تواصل",
-    "downloadCV": "تحميل السيرة"
+    "downloadCV": "تحميل السيرة",
+    "nameFirst": "عبد",
+    "nameLast": "الرحمن"
   },
   "Hero": {
     "availability": "متاح للعمل · مقيم في الرياض، السعودية",

@@ -60,7 +60,11 @@ export default async function LocaleLayout({
         disableTransitionOnChange
         defaultTheme="system"
       >
-        <div dir={isRtl ? 'rtl' : 'ltr'} className="relative isolate flex min-h-screen flex-col">
+        <div
+          dir={isRtl ? 'rtl' : 'ltr'}
+          lang={locale}
+          className="relative isolate flex min-h-screen flex-col"
+        >
           <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
             <div className="absolute -left-24 -top-32 h-80 w-80 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/20" />
             <div className="absolute -right-24 top-1/4 h-96 w-96 rounded-full bg-violet-400/15 blur-3xl dark:bg-violet-500/15" />

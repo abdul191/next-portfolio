@@ -14,12 +14,14 @@
     "projects": "Projects",
     "articles": "Articles",
     "contactMe": "Contact",
-    "downloadCV": "Download CV"
+    "downloadCV": "Download CV",
+    "nameFirst": "Abdul",
+    "nameLast": "Rehman"
   },
   "Hero": {
     "availability": "Available for work · Based in Riyadh, Saudi Arabia",
     "greeting": "Hey, I'm Abdul Rehman",
-    "roles": [ "Software Developer", "Full Stack Developer", "React.js Developer", "Next.js Developer"],
+    "roles": ["Developer", "Software Developer", "Full Stack Developer", "React.js Developer", "Next.js Developer"],
     "developer": "Developer",
     "description": "Full Stack Developer with 4+ years of experience building scalable web and mobile applications using React, Next.js, TypeScript, Node.js, Nest.js, PostgreSQL and MSSQL — with modern AI-assisted workflows baked in. Let's build something great together.",
     "downloadCV": "Download CV",

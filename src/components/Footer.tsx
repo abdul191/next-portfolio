@@ -31,7 +31,8 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-[84rem] gap-10 px-4 py-12 sm:px-6 md:grid-cols-2">
         <div className="space-y-4">
           <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold tracking-tight">
-            Abdul<span className="text-primary"> Rehman</span>
+            {nav('nameFirst')}
+            <span className="text-primary">{nav('nameLast')}</span>
           </Link>
           <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
             {t('description')}
@@ -85,7 +86,7 @@ export default function Footer() {
       <div className="border-t border-border/60">
         <div className="mx-auto flex w-full max-w-[84rem] flex-col items-center justify-between gap-2 px-4 py-5 sm:flex-row sm:px-6">
           <p className="text-sm text-muted-foreground">
-            © {year} {site.name}. {t('madeWith')}
+            © {year} {nav('nameFirst')} {nav('nameLast')}. {t('madeWith')}
           </p>
         </div>
       </div>

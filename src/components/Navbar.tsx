@@ -66,7 +66,7 @@ export default function Navbar() {
               <span className="relative flex h-8 w-8 overflow-hidden rounded-full ring-2 ring-border/80 shadow-xs transition-all duration-300 group-hover:scale-105 group-hover:ring-primary/50 sm:h-10 sm:w-10">
                 <Image
                   src={Logo}
-                  alt="Abdul Rehman"
+                  alt={`${t('nameFirst')} ${t('nameLast')}`}
                   height={40}
                   width={40}
                   className="h-full w-full object-cover"
@@ -79,7 +79,11 @@ export default function Navbar() {
               </span>
             </span>
             <span className="text-xs font-bold tracking-tight text-foreground sm:text-lg">
-              Abdul<span className="hidden min-[380px]:inline bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-indigo-400 dark:via-sky-400 dark:to-indigo-300"> Rehman</span>
+              {t('nameFirst')}
+              <span className="hidden min-[380px]:inline bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-indigo-400 dark:via-sky-400 dark:to-indigo-300">
+                {' '}
+                {t('nameLast')}
+              </span>
             </span>
           </Link>
 
