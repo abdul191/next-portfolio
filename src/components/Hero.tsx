@@ -6,11 +6,9 @@ import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {
   FaArrowDown,
-  FaBriefcase,
   FaDownload,
   FaGithub,
   FaLinkedin,
-  FaRocket,
   FaTwitter,
   FaWhatsapp
 } from 'react-icons/fa';
@@ -31,11 +29,14 @@ const SOCIALS = [
 
 const CORE_STACK = ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'];
 
-const DOTS: Record<string, string> = {
-  react: 'bg-cyan-400',
-  mern: 'bg-emerald-400',
-  responsive: 'bg-violet-400'
-};
+const ORBITS = [
+  {label: 'React.js', dot: 'bg-cyan-400', delay: 0},
+  {label: 'MERN', dot: 'bg-emerald-400', delay: 5},
+  {label: 'Responsive', dot: 'bg-violet-400', delay: 10}
+];
+
+const ORBIT_CSS = 'orbit 15s linear infinite';
+const ORBIT_REV_CSS = 'orbit-rev 15s linear infinite';
 
 export default function Hero() {
   const t = useTranslations('Hero');
@@ -71,40 +72,16 @@ export default function Hero() {
     document.getElementById(id)?.scrollIntoView({behavior: 'smooth'});
   };
 
-  const FloatChip = ({
-    dot,
-    label,
-    className,
-    delay
-  }: {
-    dot: string;
-    label: string;
-    className: string;
-    delay: number;
-  }) => (
-    <span
-      className={`animate-fade-up absolute ${className}`}
-      style={{animationDelay: `${delay}s`}}
-    >
-      <span className="animate-float" style={{animationDelay: `${delay + 0.9}s`}}>
-        <span className="glass inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold shadow-lg shadow-indigo-500/15">
-          <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-          {label}
-        </span>
-      </span>
-    </span>
-  );
-
   return (
     <section
       id="heroSection"
-      className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden"
+      className="relative flex items-center overflow-hidden sm:min-h-[calc(100vh-4rem)]"
     >
       <div className="pointer-events-none absolute -left-24 top-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
 
-      <div className="mx-auto grid w-full max-w-[84rem] items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2">
-        <div className="space-y-6 text-center lg:text-left">
+      <div className="mx-auto grid w-full max-w-[84rem] items-center gap-6 px-4 py-6 sm:px-6 sm:py-16 lg:grid-cols-2 lg:gap-12">
+        <div className="space-y-5 text-center sm:space-y-6 lg:text-left">
           <span
             className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-muted-foreground"
             style={{animationDelay: '0s'}}
@@ -121,15 +98,14 @@ export default function Hero() {
             style={{animationDelay: '0.07s'}}
           >
             {t('greeting')}
-            <span className="text-gradient block">{t('developer')}</span>
           </h1>
 
           <div
-            className="animate-fade-up flex h-8 items-center justify-center lg:justify-start"
+            className="animate-fade-up flex h-10 items-center justify-center lg:justify-start"
             style={{animationDelay: '0.14s'}}
           >
-            <p className="text-xl font-semibold text-muted-foreground">
-              {text}
+            <p className="text-2xl font-bold sm:text-3xl">
+              <span className="text-gradient">{text}</span>
               <span className="ml-0.5 inline-block animate-pulse text-primary">|</span>
             </p>
           </div>
@@ -181,7 +157,7 @@ export default function Hero() {
           </div>
 
           <div
-            className="animate-fade-up flex flex-wrap items-center justify-center gap-2 lg:justify-start"
+            className="animate-fade-up hidden flex-wrap items-center justify-center gap-2 sm:flex lg:justify-start"
             style={{animationDelay: '0.42s'}}
           >
             {CORE_STACK.map((tech) => (
@@ -194,10 +170,10 @@ export default function Hero() {
 
         <div className="flex justify-center">
           <div className="relative">
-            <LottieAnimation className="absolute left-1/2 top-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 opacity-50" />
+            <LottieAnimation className="absolute left-1/2 top-1/2 -z-10 h-96 w-96 -translate-x-1/2 -translate-y-1/2 opacity-50 sm:h-[26rem] sm:w-[26rem]" />
             <div className="pointer-events-none absolute -inset-4 -z-10 animate-slow-spin rounded-[2.5rem] bg-[conic-gradient(from_0deg,#6366f1,#22d3ee,#a78bfa,#3b82f6,#6366f1)] opacity-50 blur-[6px]" />
 
-            <div className="relative aspect-square w-64 overflow-hidden rounded-3xl border border-white/25 bg-[radial-gradient(circle_at_50%_32%,#eef2ff_0%,#c7d2fe_52%,#a5b4fc_100%)] p-1.5 shadow-2xl sm:w-72 lg:w-80">
+            <div className="relative aspect-square w-72 overflow-hidden rounded-3xl border border-white/25 bg-[radial-gradient(circle_at_50%_32%,#eef2ff_0%,#c7d2fe_52%,#a5b4fc_100%)] p-1.5 shadow-2xl sm:w-80 lg:w-96">
               <Image
                 src={heroImage}
                 alt={t('greeting')}
@@ -206,27 +182,31 @@ export default function Hero() {
               />
             </div>
 
-            <FloatChip dot={DOTS.react} label="React.js" delay={0.45} className="-left-8 top-8 sm:-left-10 sm:top-10" />
-            <FloatChip dot={DOTS.mern} label="MERN" delay={0.6} className="-right-6 top-1/3 sm:-right-8" />
-            <FloatChip dot={DOTS.responsive} label="Responsive" delay={0.75} className="-bottom-3 left-8 sm:bottom-[-0.2rem] sm:left-10" />
-
-            <span className="animate-fade-up absolute -right-5 top-1/4 sm:-right-9 sm:top-8" style={{animationDelay: '0.5s'}}>
-              <span className="animate-float" style={{animationDelay: '1.3s'}}>
-                <span className="glass inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold shadow-lg shadow-emerald-500/15">
-                  <FaRocket className="h-3.5 w-3.5 text-emerald-400" />
-                  7+ Projects
+            {ORBITS.map(({label, dot, delay}) => (
+              <div
+                key={label}
+                className="animate-orbit absolute -inset-4 z-10 sm:-inset-7"
+                style={{
+                  transform: `rotate(${delay * 24}deg)`,
+                  animation: `${ORBIT_CSS} ${-delay}s`
+                }}
+              >
+                <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                  <span
+                    className="animate-orbit-rev block"
+                    style={{
+                      transform: `rotate(${-delay * 24}deg)`,
+                      animation: `${ORBIT_REV_CSS} ${-delay}s`
+                    }}
+                  >
+                    <span className="glass inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-semibold shadow-lg shadow-indigo-500/15">
+                      <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
+                      {label}
+                    </span>
+                  </span>
                 </span>
-              </span>
-            </span>
-
-            <span className="animate-fade-up absolute -right-6 bottom-1/2 sm:-right-10 sm:bottom-10" style={{animationDelay: '0.7s'}}>
-              <span className="animate-float" style={{animationDelay: '1.6s'}}>
-                <span className="glass inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold shadow-lg shadow-amber-500/15">
-                  <FaBriefcase className="h-3.5 w-3.5 text-amber-400" />
-                  4+ Years
-                </span>
-              </span>
-            </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

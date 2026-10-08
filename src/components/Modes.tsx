@@ -1,6 +1,6 @@
 "use client";
 
-import {IoMoon, IoSunny} from 'react-icons/io5';
+import {Sun, Moon} from 'lucide-react';
 import {useEffect, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {useTheme} from 'next-themes';
@@ -15,7 +15,12 @@ export default function Modes() {
     const id = requestAnimationFrame(() => setMounted(true));
     return () => cancelAnimationFrame(id);
   }, []);
-  if (!mounted) return null;
+
+  if (!mounted) {
+    return (
+      <div className="h-8 w-8 sm:h-9 sm:w-9 rounded-full border border-border/60 bg-background/50 opacity-0" />
+    );
+  }
 
   const isDark = resolvedTheme === 'dark';
 
@@ -25,9 +30,14 @@ export default function Modes() {
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       aria-label={isDark ? t('toggleLight') : t('toggleDark')}
       title={isDark ? t('toggleLight') : t('toggleDark')}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border/60 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+      className="group inline-flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full border border-border/60 bg-background/50 text-muted-foreground backdrop-blur-sm transition-all hover:border-border hover:bg-accent/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
     >
-      {isDark ? <IoMoon className="h-4 w-4" /> : <IoSunny className="h-4 w-4" />}
+      {isDark ? (
+        <Moon className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:-rotate-12 text-indigo-400" />
+      ) : (
+        <Sun className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform duration-300 group-hover:rotate-45 text-amber-500" />
+      )}
     </button>
   );
 }
+

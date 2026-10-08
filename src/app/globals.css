@@ -244,9 +244,37 @@
   animation: float 4.5s ease-in-out infinite;
 }
 
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-rev {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 18s linear infinite;
+}
+
+.animate-orbit-rev {
+  animation: orbit-rev 18s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up,
-  .animate-float {
+  .animate-float,
+  .animate-orbit,
+  .animate-orbit-rev {
     animation: none;
   }
 }
