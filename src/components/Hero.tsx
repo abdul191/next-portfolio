@@ -171,7 +171,7 @@ export default function Hero() {
           <div className="relative">
             <div className="pointer-events-none absolute -inset-4 -z-10 animate-slow-spin rounded-[2.5rem] bg-[conic-gradient(from_0deg,#6366f1,#22d3ee,#a78bfa,#3b82f6,#6366f1)] opacity-50 blur-[6px]" />
 
-            <div className="relative aspect-square w-72 overflow-hidden rounded-3xl border border-white/25 bg-[radial-gradient(circle_at_50%_32%,#eef2ff_0%,#c7d2fe_52%,#a5b4fc_100%)] p-1.5 shadow-2xl sm:w-80 lg:w-96">
+            <div className="relative aspect-square w-72 overflow-hidden sm:w-80 lg:w-96">
               <Image
                 src={heroImage}
                 alt={t('greeting')}
