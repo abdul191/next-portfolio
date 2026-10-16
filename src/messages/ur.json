@@ -30,37 +30,58 @@
   },
   "Skills": {
     "mySkills": "میرے ساتھ کام کرنے والی ٹیکنالوجیز",
-    "myExpertise": "میری مہارت",
-    "subtitle": "ایک مکمل فل اسٹیک ٹول کٹ — فرنٹ اینڈ، بیک اینڈ، ڈیٹابیس، موبائل اور AI معاون ترقی، سعودی کلائنٹس کے پروڈکشن سسٹم پر پروان چڑھی۔",
+    "myExpertise": "مہارتیں اور ٹیکنالوجیز",
+    "cardTitle": "فل اسٹیک جائزہ",
+    "cardSubtitle": "مکمل اسٹیک آرکیٹیکچر",
+    "subtitle": "شاندار انٹرفیس سے لے کر پروڈکشن APIs اور AI معاون ورک فلو تک — ایک مکمل فل اسٹیک ٹول کٹ، جو سعودی کلائنٹس کے حقیقی پروڈکشن سسٹمز پر نکھری ہے۔",
     "skillsLabel": "مہارتیں",
     "areasLabel": "شعبے",
     "coreStack": "کور اسٹیک",
-    "note": "ایک مکمل فل اسٹیک ٹول کٹ — فرنٹ اینڈ، بیک اینڈ، ڈیٹابیس، موبائل اور AI معاون ترقی، سعودی کلائنٹس کے پروڈکشن سسٹم پر پروان چڑھی۔",
+    "coreStackNote": "روزمرہ استعمال کی ٹیکنالوجیز",
+    "note": "میں شروع سے آخر تک مکمل پروڈکٹس بناتا ہوں — تیز فرنٹ اینڈ، مضبوط APIs اور قابلِ اعتماد ڈیٹا لیئرز — صاف اور اسکیل ایبل کوڈ کے ساتھ۔",
+    "statsYears": "+4",
+    "statsYearsLabel": "سال تجربہ",
+    "statsProjects": "+15",
+    "statsProjectsLabel": "پروجیکٹس",
+    "focusTitle": "کوڈ سے آگے",
+    "focusPoints": [
+      "سعودی کلائنٹس کے لیے پروڈکشن سسٹمز",
+      "عربی اور RTL فرسٹ انٹرفیس بطور ڈیفالٹ",
+      "تیز اور محفوظ ڈیلیوری کے لیے AI معاون ورک فلو"
+    ],
+    "coreStackSkills": ["React.js", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     "categories": [
       {
-        "title": "فرنٹ اینڈ اور موبائل",
+        "title": "فرنٹ اینڈ اور موبائل ڈویلپمنٹ",
         "icon": "react",
-        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Material UI", "React Native"]
+        "badge": "کلائنٹ اور موبائل",
+        "description": "تیز، ریسپانسیو ویب اور کراس پلیٹ فارم موبائل انٹرفیس، مکمل RTL سپورٹ کے ساتھ۔",
+        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "React Native", "Material UI"],
+        "highlights": "SSR اور SSG · مکمل RTL سپورٹ · اسکیل ایبل اسٹیٹ"
       },
       {
-        "title": "بیک اینڈ اور APIs",
+        "title": "بیک اینڈ اور API آرکیٹیکچر",
         "icon": "server",
-        "skills": ["Node.js", "Express", "Nest.js", "REST API ڈیزائن"]
+        "badge": "سرور اور سسٹمز",
+        "description": "اسکیل ایبل REST APIs اور ماڈیولر سروسز Node.js اور Nest.js میں، محفوظ JWT تصدیق کے ساتھ۔",
+        "skills": ["Node.js", "Express", "Nest.js", "REST APIs", "JWT تصدیق", "مائیکرو سروسز"],
+        "highlights": "کلین آرکیٹیکچر · ہائی تھرو پٹ · محفوظ اینڈ پوائنٹس"
       },
       {
-        "title": "ڈیٹابیس اور ORM",
+        "title": "ڈیٹابیس اور ڈیٹا انفراسٹرکچر",
         "icon": "database",
-        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM"]
+        "badge": "ڈیٹا اور اسٹوریج",
+        "description": "ریلیشنل اور ڈاکومنٹ ڈیٹابیسز Prisma ORM کے ساتھ، ٹائپ سیف اور تیز کوئریز کے لیے۔",
+        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM", "اسکیما ڈیزائن", "کوئری آپٹمائزیشن"],
+        "highlights": "ٹائپ سیف ORM · اسکیما ڈیزائن · تیز رفتار کوئریز"
       },
       {
-        "title": "AI اور ایجنٹک ڈویلپمنٹ",
+        "title": "AI، ایجنٹس اور جدید ورک فلو",
         "icon": "ai",
-        "skills": ["LLM انٹیگریشن", "Model Context Protocol (MCP)", "پرامپٹ انجینئرنگ", "RAG بنیاد"]
-      },
-      {
-        "title": "ٹولز اور طریقے",
-        "icon": "tools",
-        "skills": ["Git اور GitHub", "GitLab", "i18n / RTL", "SEO", "ایجائل تعاون"]
+        "badge": "AI اور آٹومیشن",
+        "description": "پروڈکشن LLM انٹیگریشن، MCP ٹولنگ، پرامپٹ انجینئرنگ اور RAG پائپ لائنز۔",
+        "skills": ["LLM انٹیگریشن", "MCP پروٹوکول", "پرامپٹ انجینئرنگ", "RAG بنیاد", "Git اور GitHub", "SEO اور ویب وائٹلز"],
+        "highlights": "خودکار ایجنٹس · MCP پروٹوکول · جدید CI/CD"
       }
     ]
   },

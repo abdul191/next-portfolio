@@ -31,36 +31,57 @@
   "Skills": {
     "mySkills": "Technologies I Work With",
     "myExpertise": "My Expertise",
-    "subtitle": "A full-stack toolkit spanning frontend, backend, databases, mobile and AI-assisted development — honed across production systems for Saudi-based clients.",
+    "cardTitle": "Full-Stack Overview",
+    "cardSubtitle": "Full-Stack Architecture",
+    "subtitle": "From polished interfaces to production APIs and AI-assisted workflows — a complete full-stack toolkit, sharpened on real systems shipped for Saudi-based clients.",
     "skillsLabel": "Skills",
     "areasLabel": "Areas",
     "coreStack": "Core Stack",
-    "note": "A full-stack toolkit spanning frontend, backend, databases, mobile and AI-assisted development — honed across production systems for Saudi-based clients.",
+    "coreStackNote": "Daily drivers",
+    "note": "I architect and ship end-to-end products — fast frontends, robust APIs and reliable data layers — with clean, scalable code.",
+    "statsYears": "4+",
+    "statsYearsLabel": "Years Exp.",
+    "statsProjects": "15+",
+    "statsProjectsLabel": "Projects",
+    "focusTitle": "Beyond the Code",
+    "focusPoints": [
+      "Production systems shipped for Saudi-based clients",
+      "Arabic / RTL-first interfaces, by default",
+      "AI-assisted workflows for faster, safer delivery"
+    ],
+    "coreStackSkills": ["React.js", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     "categories": [
       {
-        "title": "Frontend & Mobile",
+        "title": "Frontend & Mobile Development",
         "icon": "react",
-        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Material UI", "React Native"]
+        "badge": "Client & Mobile",
+        "description": "Fast, responsive web and cross-platform mobile interfaces with native RTL support.",
+        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "React Native", "Material UI"],
+        "highlights": "SSR & SSG · RTL / i18n · Responsive Mobile · State Management"
       },
       {
-        "title": "Backend & APIs",
+        "title": "Backend & API Architecture",
         "icon": "server",
-        "skills": ["Node.js", "Express", "Nest.js", "REST API Design"]
+        "badge": "Server & Systems",
+        "description": "Scalable REST APIs and modular services in Node.js and Nest.js with secure JWT auth.",
+        "skills": ["Node.js", "Express", "Nest.js", "REST APIs", "JWT & Auth", "Microservices"],
+        "highlights": "Clean Architecture · High Throughput · Modular Services · Secure APIs"
       },
       {
-        "title": "Databases & ORM",
+        "title": "Databases & Data Infrastructure",
         "icon": "database",
-        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM"]
+        "badge": "Data & Storage",
+        "description": "Relational and document databases with Prisma ORM for type-safe, optimized queries.",
+        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM", "Schema Design", "Query Optimization"],
+        "highlights": "Type-Safe ORM · Schema Design · Query Optimization · ACID Integrity"
       },
       {
-        "title": "AI & Agentic Development",
+        "title": "AI & Modern Practices",
         "icon": "ai",
-        "skills": ["LLM Integration", "Model Context Protocol (MCP)", "Prompt Engineering", "RAG Fundamentals"]
-      },
-      {
-        "title": "Tools & Practices",
-        "icon": "tools",
-        "skills": ["Git & GitHub", "GitLab", "i18n / RTL", "SEO", "Agile Collaboration"]
+        "badge": "AI & Automation",
+        "description": "Production LLM integration, MCP tooling, prompt engineering and RAG pipelines.",
+        "skills": ["LLM Integration", "MCP Protocol", "Prompt Engineering", "RAG Fundamentals", "Git & GitHub", "SEO & Web Vitals"],
+        "highlights": "Autonomous Agents · Context Protocols · CI/CD Pipelines · Agile Delivery"
       }
     ]
   },

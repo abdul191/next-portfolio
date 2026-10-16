@@ -30,37 +30,58 @@
   },
   "Skills": {
     "mySkills": "التقنيات التي أعمل بها",
-    "myExpertise": "خبراتي",
-    "subtitle": "حقيبة أدوات كاملة تغطي الواجهات الأمامية والخلفية وقواعد البيانات والموبايل والتطوير المدعوم بالذكاء الاصطناعي — صقلتها عبر أنظمة إنتاجية لعملاء في المملكة.",
+    "myExpertise": "المهارات والخبرات",
+    "cardTitle": "نظرة عامة شاملة",
+    "cardSubtitle": "هندسة متكاملة",
+    "subtitle": "من واجهات مصقولة إلى واجهات API إنتاجية وسير عمل مدعوم بالذكاء الاصطناعي — حقيبة أدوات متكاملة صقلتها عبر أنظمة حقيقية لعملاء في المملكة.",
     "skillsLabel": "مهارات",
     "areasLabel": "مجالات",
     "coreStack": "الخبرات الأساسية",
-    "note": "حقيبة أدوات كاملة تغطي الواجهات الأمامية والخلفية وقواعد البيانات والموبايل والتطوير المدعوم بالذكاء الاصطناعي — صقلتها عبر أنظمة إنتاجية لعملاء في المملكة.",
+    "coreStackNote": "أدوات العمل اليومية",
+    "note": "أصمم وأبني منتجات متكاملة من البداية للنهاية — واجهات سريعة وواجهات API قوية وطبقات بيانات موثوقة — بكود نظيف وقابل للتوسع.",
+    "statsYears": "+4",
+    "statsYearsLabel": "سنوات خبرة",
+    "statsProjects": "+15",
+    "statsProjectsLabel": "مشروعاً",
+    "focusTitle": "ما يميز عملي",
+    "focusPoints": [
+      "أنظمة إنتاجية مُسلّمة لعملاء في المملكة",
+      "واجهات تبدأ بالعربية ودعم RTL بشكل افتراضي",
+      "سير عمل مدعوم بالذكاء الاصطناعي لتسليم أسرع وأكثر أماناً"
+    ],
+    "coreStackSkills": ["React.js", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
     "categories": [
       {
-        "title": "الواجهات والموبايل",
+        "title": "تطوير الواجهات وتطبيقات الموبايل",
         "icon": "react",
-        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Material UI", "React Native"]
+        "badge": "الواجهات والموبايل",
+        "description": "واجهات ويب وتطبيقات موبايل سريعة ومتجاوبة مع دعم أصيل للعربية RTL.",
+        "skills": ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "React Native", "Material UI"],
+        "highlights": "تصيير SSR/SSG · دعم كامل RTL · تطبيقات متجاوبة"
       },
       {
-        "title": "الخلفية وواجهات API",
+        "title": "هندسة الخوادم وواجهات API",
         "icon": "server",
-        "skills": ["Node.js", "Express", "Nest.js", "تصميم REST API"]
+        "badge": "الأنظمة والخوادم",
+        "description": "واجهات REST وخدمات معيارية قابلة للتوسع في Node.js و Nest.js مع مصادقة JWT آمنة.",
+        "skills": ["Node.js", "Express", "Nest.js", "واجهات REST", "مصادقة JWT", "هندسة Microservices"],
+        "highlights": "بنية برمجية نظيفة · أداء عالي · واجهات آمنة"
       },
       {
-        "title": "قواعد البيانات و ORM",
+        "title": "قواعد البيانات وهندسة البيانات",
         "icon": "database",
-        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM"]
+        "badge": "البيانات والتخزين",
+        "description": "قواعد بيانات علائقية ومستندية مع Prisma ORM لاستعلامات آمنة النوع ومحسّنة.",
+        "skills": ["PostgreSQL", "MS SQL Server", "MongoDB", "Prisma ORM", "تصميم الجداول", "تحسين الاستعلامات"],
+        "highlights": "تكامل نوعي آمن · نمذجة البيانات · تسريع الاستعلامات"
       },
       {
-        "title": "الذكاء الاصطناعي والوكلاء",
+        "title": "الذكاء الاصطناعي والممارسات الحديثة",
         "icon": "ai",
-        "skills": ["تكامل LLM", "بروتوكول سياق النموذج (MCP)", "هندسة البرومبت", "أساسيات RAG"]
-      },
-      {
-        "title": "الأدوات والممارسات",
-        "icon": "tools",
-        "skills": ["Git & GitHub", "GitLab", "i18n / RTL", "SEO", "التعاون Agile"]
+        "badge": "الذكاء الاصطناعي والأتمتة",
+        "description": "تكامل LLM إنتاجي وأدوات MCP وهندسة البرومبت وأنظمة RAG.",
+        "skills": ["تكامل LLM", "بروتوكول MCP", "هندسة البرومبت", "أساسيات RAG", "Git و GitHub", "SEO والأداء"],
+        "highlights": "أنظمة الوكلاء الذكية · بروتوكول MCP · تدفقات CI/CD"
       }
     ]
   },
