@@ -1,50 +1,46 @@
 "use client";
 
 import {useCallback, useEffect, useRef, useState} from 'react';
-import {FaChevronLeft, FaChevronRight, FaQuoteLeft, FaStar} from 'react-icons/fa';
+import {FaQuoteRight, FaStar} from 'react-icons/fa';
 import {useLocale, useTranslations} from 'next-intl';
 import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import LottieAnimation from './LottieAnimation';
+
+type Testimonial = {
+  description: string;
+  authorName: string;
+  authorDesignation: string;
+  photourl?: string;
+};
+
+const initials = (name: string) =>
+  name
+    .split(' ')
+    .map((p) => p[0] ?? '')
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
 
 export default function Testimonials() {
   const t = useTranslations('Testimonials');
   const locale = useLocale();
   const isRtl = locale === 'ar' || locale === 'ur';
-  const items = t.raw('list') as Array<{
-    description: string;
-    authorName: string;
-    authorDesignation: string;
-    photourl?: string;
-  }>;
+  const items = t.raw('list') as Testimonial[];
 
   const count = items.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStart = useRef<number | null>(null);
 
-  const next = useCallback(
-    () => setIndex((i) => (i + 1) % count),
-    [count]
-  );
-  const prev = useCallback(
-    () => setIndex((i) => (i - 1 + count) % count),
-    [count]
-  );
+  const next = useCallback(() => setIndex((i) => (i + 1) % count), [count]);
+  const prev = useCallback(() => setIndex((i) => (i - 1 + count) % count), [count]);
 
   useEffect(() => {
     if (paused || count <= 1) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const id = setInterval(next, 5000);
+    const id = setInterval(next, 6000);
     return () => clearInterval(id);
   }, [paused, count, next]);
-
-  const initials = (name: string) =>
-    name
-      .split(' ')
-      .map((p) => p[0] ?? '')
-      .slice(0, 2)
-      .join('')
-      .toUpperCase();
 
   const gesture = (delta: number) => {
     const isNext = (delta < 0) !== isRtl;
@@ -52,12 +48,11 @@ export default function Testimonials() {
     else prev();
   };
 
+  const current = items[index];
+
   return (
-    <section
-      id="testimonialsSection"
-      className="container-section"
-    >
-      <div className="space-y-2 pb-10 text-center">
+    <section id="testimonialsSection" className="container-section">
+      <div className="space-y-2 pb-12 text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-primary">
           {t('title')}
         </p>
@@ -70,7 +65,7 @@ export default function Testimonials() {
         aria-roledescription="carousel"
         aria-label={t('heading')}
         tabIndex={0}
-        className="group relative outline-none"
+        className="group relative mx-auto max-w-4xl outline-none"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
@@ -89,98 +84,64 @@ export default function Testimonials() {
           if (Math.abs(delta) > 50) gesture(delta);
         }}
       >
-        <div className="relative overflow-hidden rounded-3xl">
-          <div
-            className="flex touch-pan-y select-none transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
-            style={{
-              transform: `translateX(${isRtl ? '' : '-'}${index * 100}%)`
-            }}
-          >
-            {items.map((item) => (
-              <div key={item.authorName} className="w-full shrink-0 px-1 py-2 sm:px-8">
-                <figure className="glass mx-auto flex max-w-3xl flex-col gap-5 rounded-3xl p-8 transition-shadow hover:shadow-xl sm:p-10">
-                  <div className="flex items-center justify-between">
-                    <FaQuoteLeft className="h-7 w-7 text-primary/40" />
-                    <div className="flex gap-0.5 text-amber-500">
-                      {Array.from({length: 5}).map((_, i) => (
-                        <FaStar key={i} className="h-3.5 w-3.5" />
-                      ))}
-                    </div>
-                  </div>
+        <div className="pointer-events-none absolute inset-x-0 -top-8 h-56 bg-gradient-to-b from-indigo-500/10 to-transparent blur-2xl" />
+        <FaQuoteRight className="pointer-events-none absolute -top-10 end-0 h-20 w-20 text-primary/10 rtl:scale-x-[-1] sm:h-28 sm:w-28" />
 
-                  <blockquote className="flex-1 text-base leading-relaxed text-muted-foreground">
-                    &ldquo;{item.description}&rdquo;
-                  </blockquote>
-
-                  <figcaption className="flex items-center gap-3 border-t border-border/60 pt-5">
-                    <Avatar className="h-11 w-11">
-                      <AvatarImage src={item.photourl} alt={item.authorName} />
-                      <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">
-                        {initials(item.authorName)}
-                      </AvatarFallback>
-                    </Avatar>
-                    <div>
-                      <p className="text-sm font-semibold">{item.authorName}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {item.authorDesignation}
-                      </p>
-                    </div>
-                  </figcaption>
-                </figure>
-              </div>
+        <div
+          key={index}
+          className="relative flex animate-fade-up flex-col items-center gap-7 text-center"
+        >
+          <div className="flex gap-1 text-amber-500">
+            {Array.from({length: 5}).map((_, i) => (
+              <FaStar key={i} className="h-4 w-4" />
             ))}
+          </div>
+
+          <blockquote className="text-xl font-medium leading-relaxed tracking-tight text-foreground sm:text-2xl sm:leading-[1.6] md:text-[1.75rem]">
+            &ldquo;{current.description}&rdquo;
+          </blockquote>
+
+          <div className="flex items-center gap-4">
+            <Avatar className="h-12 w-12 ring-2 ring-primary/20 ring-offset-2 ring-offset-background">
+              <AvatarImage src={current.photourl} alt={current.authorName} />
+              <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">
+                {initials(current.authorName)}
+              </AvatarFallback>
+            </Avatar>
+            <div className="text-start">
+              <p className="text-sm font-semibold">{current.authorName}</p>
+              <p className="text-xs text-muted-foreground">{current.authorDesignation}</p>
+            </div>
           </div>
         </div>
 
         {count > 1 && (
-          <>
-            <button
-              type="button"
-              aria-label="Previous"
-              onClick={prev}
-              className="absolute left-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground opacity-100 shadow-md backdrop-blur transition-all hover:text-foreground sm:left-0 sm:opacity-0 sm:group-hover:opacity-100"
-            >
-              <FaChevronLeft className="h-4 w-4 rtl:rotate-180" />
-            </button>
-            <button
-              type="button"
-              aria-label="Next"
-              onClick={next}
-              className="absolute right-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground opacity-100 shadow-md backdrop-blur transition-all hover:text-foreground sm:right-0 sm:opacity-0 sm:group-hover:opacity-100"
-            >
-              <FaChevronRight className="h-4 w-4 rtl:rotate-180" />
-            </button>
-
-            <div className="mt-6 flex flex-col items-center gap-3">
-              <div className="h-1 w-full max-w-xs overflow-hidden rounded-full bg-muted">
-                <span
-                  key={index}
-                  className={`block h-full origin-left rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 rtl:origin-right animate-[carousel-progress_5s_linear_forwards] ${
-                    paused ? '[animation-play-state:paused]' : ''
-                  }`}
-                />
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                {items.map((item, i) => (
-                  <button
-                    key={item.authorName}
-                    type="button"
-                    aria-label={`Go to slide ${i + 1}`}
-                    onClick={() => setIndex(i)}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      i === index
-                        ? 'w-7 bg-gradient-to-r from-indigo-500 to-blue-600'
-                        : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+            {items.map((item, i) => (
+              <button
+                key={item.authorName}
+                type="button"
+                aria-label={item.authorName}
+                onClick={() => setIndex(i)}
+                className={`relative rounded-full transition-all duration-300 ${
+                  i === index
+                    ? 'scale-110 ring-2 ring-primary ring-offset-2 ring-offset-background'
+                    : 'opacity-45 grayscale hover:opacity-100 hover:grayscale-0'
+                }`}
+              >
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={item.photourl} alt={item.authorName} />
+                  <AvatarFallback className="bg-primary/10 text-[10px] font-semibold text-primary">
+                    {initials(item.authorName)}
+                  </AvatarFallback>
+                </Avatar>
+              </button>
+            ))}
+          </div>
         )}
       </div>
 
-      <div className="mt-8 flex justify-center">
+      <div className="mt-10 flex justify-center">
         <LottieAnimation className="h-24 w-24 opacity-70" />
       </div>
     </section>
