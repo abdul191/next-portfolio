@@ -11,9 +11,12 @@ export default function AboutMe() {
   const stats = t.raw('stats') as Array<{value: string; label: string}>;
 
   return (
-    <section id="aboutMe" className="container-section">
-      <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="relative mx-auto w-full max-w-md">
+    <section
+      id="aboutMe"
+      className="mx-auto w-full max-w-[84rem] scroll-mt-20 px-2.5 py-12 sm:px-6 sm:py-16"
+    >
+      <div className="grid items-center gap-8 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-10">
+        <div className="relative w-full max-w-sm">
           <div className="absolute -inset-3 -z-10 rounded-3xl bg-gradient-to-br from-indigo-500/20 to-blue-500/10 blur-xl" />
           <div className="glass overflow-hidden rounded-3xl p-1.5">
             <Image
@@ -29,24 +32,24 @@ export default function AboutMe() {
           </div>
         </div>
 
-        <div className="space-y-5">
+        <div className="space-y-6">
           <div className="space-y-2">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">
               {t('sectionTitle')}
             </p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">{t('heading')}</h2>
           </div>
-          <p className="leading-relaxed text-muted-foreground">{t('description1')}</p>
-          <p className="leading-relaxed text-muted-foreground">{t('description2')}</p>
+          <p className="text-lg leading-relaxed text-muted-foreground">{t('description1')}</p>
+          <p className="text-lg leading-relaxed text-muted-foreground">{t('description2')}</p>
 
-          <div className="grid grid-cols-3 gap-3 pt-2 sm:gap-4">
-            {stats.map((stat) => (
+          <div className="grid grid-cols-2 gap-3 pt-2 sm:grid-cols-4 sm:gap-4">
+            {stats.slice(1).map((stat) => (
               <div
                 key={stat.label}
                 className="glass rounded-xl p-4 text-center backdrop-blur-lg"
               >
-                <p className="text-2xl font-bold text-primary">{stat.value}</p>
-                <p className="mt-1 text-xs text-muted-foreground">{stat.label}</p>
+                <p className="text-2xl font-bold text-primary sm:text-3xl">{stat.value}</p>
+                <p className="mt-1 text-xs text-muted-foreground sm:text-sm">{stat.label}</p>
               </div>
             ))}
           </div>

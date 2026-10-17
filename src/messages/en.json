@@ -217,7 +217,9 @@
     "stats": [
       { "value": "4+", "label": "Years Experience" },
       { "value": "15+", "label": "Projects Completed" },
-      { "value": "20+", "label": "Features Shipped" }
+      { "value": "20+", "label": "Features Shipped" },
+      { "value": "25+", "label": "Technologies" },
+      { "value": "8+", "label": "Companies Served" }
     ]
   },
   "Portfolio": {
