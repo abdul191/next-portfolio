@@ -466,7 +466,7 @@
     "emailLabel": "Email",
     "websiteLabel": "Website",
     "locationLabel": "Based in",
-    "location": "Al Narjis, Riyadh, Saudi Arabia",
+    "location": "Al Malqa, Riyadh, Saudi Arabia",
     "replyNote": "I usually reply within 24 hours.",
     "firstName": "First Name",
     "lastName": "Last Name",
@@ -627,7 +627,7 @@
       { "label": "Nationality", "value": "Pakistani" },
       { "label": "Iqama Status", "value": "Transferable" },
       { "label": "Availability", "value": "Immediate" },
-      { "label": "Based in", "value": "Al Narjis, Riyadh, KSA" }
+      { "label": "Based in", "value": "Al Malqa, Riyadh, KSA" }
     ],
     "languagesTitle": "Languages",
     "languages": [

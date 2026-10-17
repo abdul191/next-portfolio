@@ -24,7 +24,7 @@ export default function Articles() {
   const items = t.raw('items') as Item[];
 
   return (
-    <section id="articlesSection" className="container-section">
+    <section id="articlesSection" className="container-section pt-4 sm:pt-6">
       <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-xl">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">

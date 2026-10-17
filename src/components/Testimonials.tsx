@@ -51,7 +51,7 @@ export default function Testimonials() {
   const current = items[index];
 
   return (
-    <section id="testimonialsSection" className="container-section">
+    <section id="testimonialsSection" className="container-section pb-2 sm:pb-4">
       <div className="space-y-2 pb-12 text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-primary">
           {t('title')}
@@ -141,7 +141,7 @@ export default function Testimonials() {
         )}
       </div>
 
-      <div className="mt-10 flex justify-center">
+      <div className="mt-6 flex justify-center">
         <LottieAnimation className="h-24 w-24 opacity-70" />
       </div>
     </section>
