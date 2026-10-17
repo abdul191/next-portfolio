@@ -703,7 +703,11 @@
   },
   "Footer": {
     "description": "Full Stack Developer based in Riyadh — building scalable web and mobile applications with React, Next.js, TypeScript, Node.js and modern AI-assisted workflows.",
-    "madeWith": "Made with 💖 by Abdul Rehman"
+    "madeWith": "Made with 💖 by Abdul Rehman",
+    "navigation": "Explore",
+    "getInTouch": "Get in touch",
+    "backToTop": "Back to top",
+    "role": "Full Stack Developer"
   },
   "Languages": {
     "chooseLanguage": "Choose language",

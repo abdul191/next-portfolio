@@ -703,7 +703,11 @@
   },
   "Footer": {
     "description": "ریاض میں مقیم فل اسٹیک ڈویلپر — React، Next.js، TypeScript، Node.js اور جدید AI معاون ورک فلو کے ساتھ اسکیل ایبل ویب اور موبائل ایپس۔",
-    "madeWith": "💖 کے ساتھ عبد الرحمن نے بنایا"
+    "madeWith": "💖 کے ساتھ عبد الرحمن نے بنایا",
+    "navigation": "دیکھیں",
+    "getInTouch": "رابطہ کریں",
+    "backToTop": "اوپر جائیں",
+    "role": "فل اسٹیک ڈویلپر"
   },
   "Languages": {
     "chooseLanguage": "زبان منتخب کریں",

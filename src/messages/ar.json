@@ -703,7 +703,11 @@
   },
   "Footer": {
     "description": "مطور كامل مقيم في الرياض — أبني تطبيقات ويب وموبايل قابلة للتوسع بـ React وNext.js وTypeScript وNode.js وسير عمل حديث مدعوم بالذكاء الاصطناعي.",
-    "madeWith": "صُنع بـ 💖 بواسطة عبد الرحمن"
+    "madeWith": "صُنع بـ 💖 بواسطة عبد الرحمن",
+    "navigation": "تصفّح",
+    "getInTouch": "تواصل معي",
+    "backToTop": "العودة للأعلى",
+    "role": "مطور فل ستاك"
   },
   "Languages": {
     "chooseLanguage": "اختر اللغة",

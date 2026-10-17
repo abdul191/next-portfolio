@@ -1,9 +1,17 @@
 "use client";
 
+import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
-import {FaGithub, FaLinkedin, FaTwitter, FaWhatsapp} from 'react-icons/fa';
+import {
+  FaArrowUp,
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaWhatsapp
+} from 'react-icons/fa';
 import {site} from '@/data/site';
+import {aboutMeImage} from '@/data/project-images';
 
 const SOCIALS = [
   {href: site.github, icon: FaGithub, label: 'GitHub'},
@@ -27,67 +35,62 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/20 bg-background/40 backdrop-blur-xl dark:border-white/10">
-      <div className="mx-auto grid w-full max-w-[84rem] gap-10 px-4 py-12 sm:px-6 md:grid-cols-2">
-        <div className="space-y-4">
-          <Link href="/" className="inline-flex items-center gap-2 text-lg font-bold tracking-tight">
-            {nav('nameFirst')}
-            <span className="text-primary">{nav('nameLast')}</span>
-          </Link>
-          <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-            {t('description')}
-          </p>
-          <div className="flex items-center gap-3">
-            {SOCIALS.map(({href, icon: Icon, label}) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                title={label}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:text-foreground"
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
-        </div>
+    <footer>
+      <div className="mx-auto flex w-full max-w-[84rem] flex-col items-center gap-6 px-4 py-8 sm:px-6 md:flex-row md:justify-between">
+        <Link href="/" className="inline-flex items-center gap-2.5 font-bold tracking-tight">
+          <Image
+            src={aboutMeImage}
+            alt={nav('nameFirst')}
+            width={32}
+            height={32}
+            className="h-8 w-8 rounded-full object-cover ring-2 ring-primary/15"
+          />
+          {nav('nameFirst')}
+          <span className="text-primary">{nav('nameLast')}</span>
+        </Link>
 
-        <div className="md:justify-self-end">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-            {nav('home')}
-          </p>
-          <ul className="grid grid-cols-2 gap-x-10 gap-y-2">
-            {QUICK_LINKS.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {nav(item.key)}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <a
-                href={site.cvPath}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              >
-                {nav('downloadCV')}
-              </a>
-            </li>
-          </ul>
+        <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+          {QUICK_LINKS.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {nav(item.key)}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          {SOCIALS.map(({href, icon: Icon, label}) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              title={label}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+            >
+              <Icon className="h-4 w-4" />
+            </a>
+          ))}
         </div>
       </div>
 
       <div className="border-t border-border/60">
-        <div className="mx-auto flex w-full max-w-[84rem] flex-col items-center justify-between gap-2 px-4 py-5 sm:flex-row sm:px-6">
-          <p className="text-sm text-muted-foreground">
+        <div className="mx-auto flex w-full max-w-[84rem] flex-col items-center justify-between gap-2 px-4 py-4 text-xs text-muted-foreground sm:flex-row sm:px-6">
+          <p>
             © {year} {nav('nameFirst')} {nav('nameLast')}. {t('madeWith')}
           </p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-primary"
+          >
+            {t('backToTop')}
+            <FaArrowUp className="h-3 w-3" />
+          </button>
         </div>
       </div>
     </footer>
