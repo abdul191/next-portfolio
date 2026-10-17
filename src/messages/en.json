@@ -365,6 +365,7 @@
     "heading": "Latest Articles",
     "subtitle": "Notes on frontend development, React and the little things that make the web better.",
     "readMore": "Read Article",
+    "viewAll": "View All Articles",
     "backToArticles": "Back to Articles",
     "notFound": "Article not found",
     "items": [
