@@ -97,14 +97,14 @@ export default async function ProjectDetailPage({
       <div className="mt-10 grid gap-10 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
           <div>
-            <h2 className="text-xl font-semibold">{t('overviewLabel')}</h2>
+            <h2 className="text-2xl font-bold tracking-tight">{t('overviewLabel')}</h2>
             <p className="mt-3 leading-relaxed text-muted-foreground">
               {content.overview}
             </p>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold">{t('featuresLabel')}</h2>
+            <h2 className="text-2xl font-bold tracking-tight">{t('featuresLabel')}</h2>
             <ul className="mt-3 space-y-2.5">
               {content.features.map((feature) => (
                 <li
@@ -121,7 +121,7 @@ export default async function ProjectDetailPage({
 
         <aside className="space-y-6">
           <div className="rounded-xl border border-border bg-card p-6">
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            <h3 className="font-sans text-sm font-semibold uppercase tracking-widest text-muted-foreground">
               {t('stackLabel')}
             </h3>
             <div className="mt-3 flex flex-wrap gap-1.5">

@@ -89,7 +89,7 @@ export default async function ArticleDetailPage({
         </div>
 
         <div className="mt-4 space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{content.title}</h1>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">{content.title}</h1>
           <p className="text-lg text-muted-foreground">{content.tagline}</p>
         </div>
 

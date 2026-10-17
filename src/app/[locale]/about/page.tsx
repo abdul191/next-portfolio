@@ -95,7 +95,7 @@ export default async function AboutPage({
 
       {/* Stats */}
       <div className="mt-16">
-        <h2 className="mb-6 text-center text-sm font-semibold uppercase tracking-widest text-primary">
+        <h2 className="mb-6 text-center font-sans text-sm font-semibold uppercase tracking-widest text-primary">
           {t('statsTitle')}
         </h2>
         <div className="grid grid-cols-3 gap-4">
