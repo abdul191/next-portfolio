@@ -1,23 +1,55 @@
 "use client";
 
 import {useEffect, useRef, useState} from 'react';
-import Image from 'next/image';
+import type {ReactElement} from 'react';
 import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {
-  FaChevronLeft,
-  FaChevronRight,
+  FaBoxes,
+  FaCode,
   FaExternalLinkAlt,
-  FaGithub
+  FaFileSignature,
+  FaGlobe,
+  FaGithub,
+  FaLayerGroup,
+  FaShieldAlt,
+  FaShoppingCart,
+  FaTachometerAlt,
+  FaUserClock,
+  FaWarehouse
 } from 'react-icons/fa';
-import {projectImages} from '@/data/project-images';
 import {getProjectBySlug} from '@/data/projects';
 import Stagger from './Stagger';
+
+const ICON_MAP: Record<string, ReactElement> = {
+  "gtrack-esignature": <FaFileSignature className="h-5 w-5" />,
+  "groute-admin": <FaTachometerAlt className="h-5 w-5" />,
+  "trust-corners": <FaShieldAlt className="h-5 w-5" />,
+  "rs-flavour": <FaShoppingCart className="h-5 w-5" />,
+  "innovazy-suite": <FaLayerGroup className="h-5 w-5" />,
+  "knk-associates": <FaBoxes className="h-5 w-5" />,
+  "code-frenetics": <FaCode className="h-5 w-5" />,
+  "innovazy-website": <FaGlobe className="h-5 w-5" />,
+  "attendance-management": <FaUserClock className="h-5 w-5" />,
+  "warehouse-management": <FaWarehouse className="h-5 w-5" />
+};
+
+const COLOR_MAP: Record<string, string> = {
+  "gtrack-esignature": "from-indigo-500 to-blue-600",
+  "groute-admin": "from-violet-500 to-purple-600",
+  "trust-corners": "from-sky-500 to-blue-600",
+  "rs-flavour": "from-amber-500 to-orange-600",
+  "innovazy-suite": "from-cyan-500 to-sky-600",
+  "knk-associates": "from-emerald-500 to-teal-600",
+  "code-frenetics": "from-rose-500 to-pink-600",
+  "innovazy-website": "from-fuchsia-500 to-violet-600",
+  "attendance-management": "from-teal-500 to-emerald-600",
+  "warehouse-management": "from-slate-500 to-slate-700"
+};
 
 type ProjectCard = {
   title: string;
   description: string;
-  link: string;
   image: string;
   slug: string;
 };
@@ -46,22 +78,23 @@ export default function Portfolio() {
     };
   }, []);
 
-  const groups: ProjectCard[][] = [];
-  for (let i = 0; i < items.length; i += perView) {
-    groups.push(items.slice(i, i + perView));
-  }
-  const slideCount = groups.length;
-  const current = Math.min(index, slideCount - 1);
+  const maxIndex = Math.max(0, items.length - perView);
+  const current = Math.min(index, maxIndex);
 
-  const next = () => setIndex((i) => (i + 1) % slideCount);
-  const prev = () => setIndex((i) => (i - 1 + slideCount) % slideCount);
+  const next = () => setIndex(current >= maxIndex ? 0 : current + 1);
+  const prev = () => setIndex(current <= 0 ? maxIndex : current - 1);
 
   useEffect(() => {
-    if (paused || slideCount <= 1) return;
+    if (paused || maxIndex <= 0) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % slideCount), 5000);
+    const id = setInterval(() => {
+      setIndex((i) => {
+        const c = Math.min(i, maxIndex);
+        return c >= maxIndex ? 0 : c + 1;
+      });
+    }, 5000);
     return () => clearInterval(id);
-  }, [paused, slideCount]);
+  }, [paused, maxIndex]);
 
   const gesture = (delta: number) => {
     const isNext = (delta < 0) !== isRtl;
@@ -124,108 +157,92 @@ export default function Portfolio() {
           if (Math.abs(delta) > 50) gesture(delta);
         }}
       >
-        <div className="overflow-hidden rounded-3xl">
+        <div className="overflow-x-clip">
           <div
-            className="flex touch-pan-y select-none transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+            className="flex touch-pan-y select-none py-2 transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
             style={{
-              transform: `translateX(${isRtl ? '' : '-'}${current * 100}%)`
+              transform: `translateX(${isRtl ? '' : '-'}${current * (100 / perView)}%)`
             }}
           >
-            {groups.map((group, gi) => (
-              <div key={gi} className="w-full shrink-0 px-1 py-2 sm:px-10">
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {group.map((proj, i) => {
-                    const meta = getProjectBySlug(proj.slug);
-                    const img = projectImages[proj.image] ?? projectImages.queue;
-                    return (
-                      <Stagger key={proj.title} index={i} delay={90}>
-                        <article className="group relative h-[420px] overflow-hidden rounded-3xl shadow-xl transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/10">
-                          <Image
-                            src={img}
-                            alt={proj.title}
-                            fill
-                            sizes="(max-width: 640px) 100vw, 33vw"
-                            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10 transition-opacity duration-500 group-hover:from-black/95" />
+            {items.map((proj, i) => {
+              const meta = getProjectBySlug(proj.slug);
+              const color = COLOR_MAP[proj.slug] ?? 'from-indigo-500 to-blue-600';
+              const icon = ICON_MAP[proj.slug] ?? <FaCode className="h-5 w-5" />;
+              return (
+                <div
+                  key={proj.title}
+                  className="shrink-0 grow-0 px-3"
+                  style={{flexBasis: `${100 / perView}%`, maxWidth: `${100 / perView}%`}}
+                >
+                  <Stagger index={i} delay={50} className="h-full">
+                    <article className="group/card relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-border/70 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl">
+                      <div
+                        className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover/card:opacity-20 ${color}`}
+                      />
 
-                          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-3 p-6 text-white">
-                            <h3 className="text-xl font-bold">{proj.title}</h3>
-                            <p className="line-clamp-3 text-sm leading-relaxed text-white/75">
-                              {proj.description}
-                            </p>
+                      <div className="relative flex items-center justify-between">
+                        <span
+                          className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg transition-transform duration-300 group-hover/card:scale-110 ${color}`}
+                        >
+                          {icon}
+                        </span>
+                        {meta?.live && (
+                          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                            {t('liveBadge')}
+                          </span>
+                        )}
+                      </div>
 
-                            {meta && (
-                              <div className="flex flex-wrap gap-1.5">
-                                {meta.stack.slice(0, 3).map((tech) => (
-                                  <span
-                                    key={tech}
-                                    className="rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium backdrop-blur"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            )}
+                      <h3 className="relative text-lg font-semibold tracking-tight transition-colors duration-300 group-hover/card:text-primary">
+                        {proj.title}
+                      </h3>
+                      <p className="relative text-sm leading-relaxed text-muted-foreground">
+                        {proj.description}
+                      </p>
 
-                            <div className="flex items-center gap-4 border-t border-white/20 pt-4">
-                              <Link
-                                href={`/projects/${proj.slug}`}
-                                className="inline-flex h-10 items-center rounded-full bg-white px-5 text-sm font-semibold text-slate-900 shadow-md transition-transform hover:scale-[1.03]"
-                              >
-                                {t('details')}
-                              </Link>
-                              <a
-                                href={meta?.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                aria-label="GitHub"
-                                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition-colors hover:bg-white/25"
-                              >
-                                <FaGithub className="h-4 w-4" />
-                              </a>
-                              {meta?.live && (
-                                <a
-                                  href={meta.live}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  aria-label={t('liveDemo')}
-                                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition-colors hover:bg-white/25"
-                                >
-                                  <FaExternalLinkAlt className="h-3.5 w-3.5" />
-                                </a>
-                              )}
-                            </div>
-                          </div>
-                        </article>
-                      </Stagger>
-                    );
-                  })}
+                      {meta && (
+                        <div className="relative flex flex-wrap gap-1.5">
+                          {meta.stack.slice(0, 4).map((tech) => (
+                            <span
+                              key={tech}
+                              className="rounded-full border border-border/70 bg-background/60 px-2.5 py-0.5 text-[11px] font-medium text-muted-foreground"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="relative mt-auto flex items-center gap-4 border-t border-border/60 pt-4">
+                        {meta?.live && (
+                          <a
+                            href={meta.live}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex h-9 items-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                          >
+                            {t('liveDemo')}
+                            <FaExternalLinkAlt className="h-3 w-3" />
+                          </a>
+                        )}
+                        <Link
+                          href={`/projects/${proj.slug}`}
+                          className="text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                        >
+                          {t('details')}
+                        </Link>
+                      </div>
+                    </article>
+                  </Stagger>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {slideCount > 1 && (
+        {maxIndex > 0 && (
           <>
-            <button
-              type="button"
-              aria-label="Previous"
-              onClick={prev}
-              className="absolute left-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground opacity-100 shadow-md backdrop-blur transition-all hover:text-foreground sm:left-0 sm:opacity-0 sm:group-hover:opacity-100"
-            >
-              <FaChevronLeft className="h-4 w-4 rtl:rotate-180" />
-            </button>
-            <button
-              type="button"
-              aria-label="Next"
-              onClick={next}
-              className="absolute right-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-muted-foreground opacity-100 shadow-md backdrop-blur transition-all hover:text-foreground sm:right-0 sm:opacity-0 sm:group-hover:opacity-100"
-            >
-              <FaChevronRight className="h-4 w-4 rtl:rotate-180" />
-            </button>
-
             <div className="mt-6 flex flex-col items-center gap-3">
               <div className="h-1 w-full max-w-xs overflow-hidden rounded-full bg-muted">
                 <span
@@ -236,7 +253,7 @@ export default function Portfolio() {
                 />
               </div>
               <div className="flex items-center justify-center gap-2">
-                {groups.map((_, i) => (
+                {Array.from({length: maxIndex + 1}).map((_, i) => (
                   <button
                     key={i}
                     type="button"

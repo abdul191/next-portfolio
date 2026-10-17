@@ -230,6 +230,7 @@
     "viewAll": "View All Projects",
     "details": "Details",
     "liveDemo": "Live Demo",
+    "liveBadge": "Live",
     "dragHint": "Scroll to explore",
     "projects": [
       {
@@ -277,9 +278,30 @@
       {
         "title": "Innovazy Website",
         "description": "A responsive React website with on-page SEO and accessibility focus for consistent cross-browser performance.",
-        "link": "View on GitHub",
-        "image": "gitbranch",
+        "link": "Live Demo",
+        "image": "code",
         "slug": "innovazy-website"
+      },
+      {
+        "title": "Code Frenetics",
+        "description": "A modern, responsive company website with on-page SEO and performance optimization, shipped end-to-end for a client.",
+        "link": "Live Demo",
+        "image": "gitbranch",
+        "slug": "code-frenetics"
+      },
+      {
+        "title": "Attendance Management System",
+        "description": "An admin dashboard for tracking employee attendance, shifts and reports, connected to a secure backend API.",
+        "link": "Details",
+        "image": "facility",
+        "slug": "attendance-management"
+      },
+      {
+        "title": "Warehouse Management System",
+        "description": "A dashboard for managing inventory, stock movements and warehouse operations with a clean, data-rich interface.",
+        "link": "Details",
+        "image": "queue",
+        "slug": "warehouse-management"
       }
     ]
   },
@@ -554,6 +576,39 @@
           "Responsive, performant React frontend",
           "On-page SEO and accessibility focus",
           "Consistent cross-browser experience"
+        ]
+      },
+      {
+        "slug": "code-frenetics",
+        "title": "Code Frenetics",
+        "tagline": "Modern, responsive company website",
+        "overview": "A modern, responsive website for Code Frenetics focused on clean design, on-page SEO and performance. Shipped end-to-end with a mobile-first layout, optimized assets and accessible, semantic structure.",
+        "features": [
+          "Responsive, mobile-first design",
+          "On-page SEO and performance optimization",
+          "Clean, accessible and semantic UI"
+        ]
+      },
+      {
+        "slug": "attendance-management",
+        "title": "Attendance Management System",
+        "tagline": "Employee attendance & shift tracking dashboard",
+        "overview": "An admin dashboard for tracking employee attendance, shifts and reports. Built as a responsive web app backed by a secure REST API with authentication and role-based access for administrators and staff.",
+        "features": [
+          "Real-time attendance and shift tracking",
+          "Automated reports and summaries",
+          "Role-based access for admins and staff"
+        ]
+      },
+      {
+        "slug": "warehouse-management",
+        "title": "Warehouse Management System",
+        "tagline": "Inventory & stock operations dashboard",
+        "overview": "A dashboard for managing inventory, stock movements and warehouse operations. Designed for clarity at scale, with a data-rich interface and secure API covering authentication, roles and reporting.",
+        "features": [
+          "Inventory and stock movement tracking",
+          "Data-rich dashboard with filters and reports",
+          "Secure API with authentication and roles"
         ]
       }
     ]

@@ -136,16 +136,8 @@ export default async function ProjectDetailPage({
             </div>
           </div>
 
-          <div className="flex flex-col gap-3">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-accent"
-            >
-              <FaGithub className="h-4 w-4" />
-              {t('sourceCode')}
-            </a>
+          {(project.live || project.github) && (
+            <div className="flex flex-col gap-3">
             {project.live && (
               <a
                 href={project.live}
@@ -157,7 +149,19 @@ export default async function ProjectDetailPage({
                 {t('liveDemo')}
               </a>
             )}
-          </div>
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-md border border-border px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-accent"
+              >
+                <FaGithub className="h-4 w-4" />
+                {t('sourceCode')}
+              </a>
+            )}
+            </div>
+          )}
         </aside>
       </div>
     </Reveal>

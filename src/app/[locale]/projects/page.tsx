@@ -79,15 +79,6 @@ export default async function ProjectsPage({
                   >
                     {t('overviewLabel')}
                   </Link>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    <FaGithub className="h-3.5 w-3.5" />
-                    {t('sourceCode')}
-                  </a>
                   {project.live && (
                     <a
                       href={project.live}
@@ -97,6 +88,17 @@ export default async function ProjectsPage({
                     >
                       <FaExternalLinkAlt className="h-3 w-3" />
                       {t('liveDemo')}
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      <FaGithub className="h-3.5 w-3.5" />
+                      {t('sourceCode')}
                     </a>
                   )}
                 </div>
