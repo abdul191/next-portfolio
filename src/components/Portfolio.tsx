@@ -58,6 +58,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     if (paused || slideCount <= 1) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = setInterval(() => setIndex((i) => (i + 1) % slideCount), 5000);
     return () => clearInterval(id);
   }, [paused, slideCount]);
@@ -100,11 +101,19 @@ export default function Portfolio() {
       </div>
 
       <div
-        className="group relative"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={t('heading')}
+        tabIndex={0}
+        className="group relative outline-none"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
+        onKeyDown={(e) => {
+          if (e.key === 'ArrowLeft') prev();
+          if (e.key === 'ArrowRight') next();
+        }}
         onPointerDown={(e) => {
           touchStart.current = e.clientX;
         }}
@@ -117,7 +126,7 @@ export default function Portfolio() {
       >
         <div className="overflow-hidden rounded-3xl">
           <div
-            className="flex touch-pan-y select-none transition-transform duration-700 ease-out"
+            className="flex touch-pan-y select-none transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
             style={{
               transform: `translateX(${isRtl ? '' : '-'}${current * 100}%)`
             }}
@@ -217,20 +226,30 @@ export default function Portfolio() {
               <FaChevronRight className="h-4 w-4 rtl:rotate-180" />
             </button>
 
-            <div className="mt-6 flex items-center justify-center gap-2">
-              {groups.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => setIndex(i)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    i === current
-                      ? 'w-7 bg-primary'
-                      : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+            <div className="mt-6 flex flex-col items-center gap-3">
+              <div className="h-1 w-full max-w-xs overflow-hidden rounded-full bg-muted">
+                <span
+                  key={current}
+                  className={`block h-full origin-left rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 rtl:origin-right animate-[carousel-progress_5s_linear_forwards] ${
+                    paused ? '[animation-play-state:paused]' : ''
                   }`}
                 />
-              ))}
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                {groups.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Go to slide ${i + 1}`}
+                    onClick={() => setIndex(i)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      i === current
+                        ? 'w-7 bg-gradient-to-r from-indigo-500 to-blue-600'
+                        : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </>
         )}

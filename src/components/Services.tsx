@@ -1,7 +1,8 @@
 "use client";
 
+import {useEffect, useRef, useState} from 'react';
 import type {ReactElement} from 'react';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {
   FaArrowRight,
@@ -20,6 +21,7 @@ import {
   FaServer,
   FaUniversalAccess
 } from 'react-icons/fa';
+import Stagger from './Stagger';
 
 const ICON_MAP: Record<string, ReactElement> = {
   code: <FaCode className="h-5 w-5" />,
@@ -65,14 +67,57 @@ const STEP_COLORS = [
   'from-emerald-500 to-teal-600'
 ];
 
+type ServiceItem = {title: string; description: string; icon: string};
+type Step = {step: string; title: string; description: string};
+
 export default function Services() {
   const t = useTranslations('Services');
-  const items = t.raw('items') as Array<{title: string; description: string; icon: string}>;
-  const steps = t.raw('processSteps') as Array<{
-    step: string;
-    title: string;
-    description: string;
-  }>;
+  const locale = useLocale();
+  const isRtl = locale === 'ar' || locale === 'ur';
+  const items = t.raw('items') as ServiceItem[];
+  const steps = t.raw('processSteps') as Step[];
+
+  const [perView, setPerView] = useState(4);
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStart = useRef<number | null>(null);
+
+  useEffect(() => {
+    const mqDesktop = window.matchMedia('(min-width: 1024px)');
+    const mqTablet = window.matchMedia('(min-width: 640px)');
+    const update = () => setPerView(mqDesktop.matches ? 4 : mqTablet.matches ? 2 : 1);
+    update();
+    mqDesktop.addEventListener('change', update);
+    mqTablet.addEventListener('change', update);
+    return () => {
+      mqDesktop.removeEventListener('change', update);
+      mqTablet.removeEventListener('change', update);
+    };
+  }, []);
+
+  const maxIndex = Math.max(0, items.length - perView);
+  const current = Math.min(index, maxIndex);
+
+  const next = () => setIndex(current >= maxIndex ? 0 : current + 1);
+  const prev = () => setIndex(current <= 0 ? maxIndex : current - 1);
+
+  useEffect(() => {
+    if (paused || maxIndex <= 0) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = setInterval(() => {
+      setIndex((i) => {
+        const c = Math.min(i, maxIndex);
+        return c >= maxIndex ? 0 : c + 1;
+      });
+    }, 5000);
+    return () => clearInterval(id);
+  }, [paused, maxIndex]);
+
+  const gesture = (delta: number) => {
+    const isNext = (delta < 0) !== isRtl;
+    if (isNext) next();
+    else prev();
+  };
 
   return (
     <section
@@ -87,24 +132,112 @@ export default function Services() {
         <p className="mx-auto max-w-2xl text-muted-foreground">{t('subtitle')}</p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
+      <div
+        role="region"
+        aria-roledescription="carousel"
+        aria-label={t('heading')}
+        tabIndex={0}
+        className="group relative outline-none"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+        onKeyDown={(e) => {
+          if (e.key === 'ArrowLeft') prev();
+          if (e.key === 'ArrowRight') next();
+        }}
+        onPointerDown={(e) => {
+          touchStart.current = e.clientX;
+        }}
+        onPointerUp={(e) => {
+          if (touchStart.current === null) return;
+          const delta = e.clientX - touchStart.current;
+          touchStart.current = null;
+          if (Math.abs(delta) > 50) gesture(delta);
+        }}
+      >
+        <div className="overflow-x-clip">
           <div
-            key={item.title}
-            className="glass group relative flex flex-col gap-3 overflow-hidden rounded-xl p-6 transition-all hover:-translate-y-1 hover:shadow-xl"
+            className="flex touch-pan-y select-none py-2 transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform"
+            style={{
+              transform: `translateX(${isRtl ? '' : '-'}${current * (100 / perView)}%)`
+            }}
           >
-            <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-indigo-500/10 blur-2xl transition-opacity group-hover:opacity-100" />
-            <span
-              className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-md ${COLOR_MAP[item.icon] ?? COLOR_MAP.code}`}
-            >
-              {ICON_MAP[item.icon] ?? ICON_MAP.code}
-            </span>
-            <h3 className="text-lg font-semibold">{item.title}</h3>
-            <p className="text-sm leading-relaxed text-muted-foreground">
-              {item.description}
-            </p>
+            {items.map((item, i) => {
+              const color = COLOR_MAP[item.icon] ?? COLOR_MAP.code;
+              return (
+                <div
+                  key={item.title}
+                  className="shrink-0 grow-0 px-3"
+                  style={{flexBasis: `${100 / perView}%`, maxWidth: `${100 / perView}%`}}
+                >
+                  <Stagger index={i} delay={40} className="h-full">
+                    <article className="group/card relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-border/70 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-xl">
+                      <div
+                        className={`pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover/card:opacity-25 ${color}`}
+                      />
+                      <div
+                        className={`pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r transition-transform duration-300 group-hover/card:scale-x-100 rtl:origin-right ${color}`}
+                      />
+
+                      <div className="relative flex items-start justify-between">
+                        <span
+                          className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-white shadow-lg transition-transform duration-300 group-hover/card:-rotate-3 group-hover/card:scale-110 ${color}`}
+                        >
+                          {ICON_MAP[item.icon] ?? ICON_MAP.code}
+                        </span>
+                        <span className="text-3xl font-black leading-none tabular-nums text-muted-foreground/15 transition-colors duration-300 group-hover/card:text-primary/40">
+                          {String(i + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+
+                      <h3 className="relative text-lg font-semibold tracking-tight transition-colors duration-300 group-hover/card:text-primary">
+                        {item.title}
+                      </h3>
+                      <p className="relative text-sm leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
+
+                      <div
+                        className={`mt-auto h-0.5 w-8 rounded-full bg-gradient-to-r transition-all duration-300 group-hover/card:w-full ${color}`}
+                      />
+                    </article>
+                  </Stagger>
+                </div>
+              );
+            })}
           </div>
-        ))}
+        </div>
+
+        {maxIndex > 0 && (
+          <>
+            <div className="mt-6 flex flex-col items-center gap-3">
+              <div className="h-1 w-full max-w-xs overflow-hidden rounded-full bg-muted">
+                <span
+                  key={current}
+                  className={`block h-full origin-left rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 rtl:origin-right animate-[carousel-progress_5s_linear_forwards] ${
+                    paused ? '[animation-play-state:paused]' : ''
+                  }`}
+                />
+              </div>
+              <div className="flex items-center justify-center gap-2">
+                {Array.from({length: maxIndex + 1}).map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Go to slide ${i + 1}`}
+                    onClick={() => setIndex(i)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      i === current
+                        ? 'w-7 bg-gradient-to-r from-indigo-500 to-blue-600'
+                        : 'w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       <div className="mt-20">
