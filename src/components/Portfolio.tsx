@@ -19,6 +19,7 @@ import {
   FaWarehouse
 } from 'react-icons/fa';
 import {getProjectBySlug} from '@/data/projects';
+import {site} from '@/data/site';
 import Stagger from './Stagger';
 
 const ICON_MAP: Record<string, ReactElement> = {
@@ -119,7 +120,7 @@ export default function Portfolio() {
 
         <div className="flex items-center gap-2">
           <a
-            href="https://github.com/abdul191"
+            href={site.github}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-outline"

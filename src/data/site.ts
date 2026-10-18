@@ -4,7 +4,7 @@ export const site = {
   phone: "+966 56 181 4791",
   whatsapp: "966561814791",
   email: "abdul191006@gmail.com",
-  location: "Al Narjis, Riyadh, Saudi Arabia",
+  location: "Al Malqa, Riyadh, Saudi Arabia",
   github: "https://github.com/abdul191",
   linkedin: "https://www.linkedin.com/in/iamabdulrehmann",
   twitter: "https://x.com/Abdul15721",

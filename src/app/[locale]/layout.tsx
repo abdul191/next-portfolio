@@ -1,5 +1,12 @@
-import {notFound} from 'next/navigation';
 import type {Metadata} from 'next';
+import {
+  Cairo,
+  Inter,
+  JetBrains_Mono,
+  Noto_Nastaliq_Urdu,
+  Space_Grotesk
+} from 'next/font/google';
+import {notFound} from 'next/navigation';
 import {hasLocale} from 'next-intl';
 import {getMessages, getTranslations, setRequestLocale} from 'next-intl/server';
 import {NextIntlClientProvider} from 'next-intl';
@@ -9,6 +16,37 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Whatsapp from '@/components/Whatsapp';
 import PageReveal from '@/components/PageReveal';
+import '../globals.css';
+
+const inter = Inter({
+  variable: '--font-inter',
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-jetbrains',
+  subsets: ['latin'],
+  display: 'swap'
+});
+
+const cairo = Cairo({
+  variable: '--font-arabic',
+  subsets: ['arabic'],
+  display: 'swap'
+});
+
+const notoNastaliq = Noto_Nastaliq_Urdu({
+  variable: '--font-urdu',
+  subsets: ['arabic'],
+  display: 'swap'
+});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
@@ -53,32 +91,37 @@ export default async function LocaleLayout({
   const isRtl = locale === 'ar' || locale === 'ur';
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <ThemeProvider
-        attribute="class"
-        enableSystem
-        disableTransitionOnChange
-        defaultTheme="system"
-      >
-        <div
-          dir={isRtl ? 'rtl' : 'ltr'}
-          lang={locale}
-          className="relative isolate flex min-h-screen flex-col"
-        >
-          <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
-            <div className="absolute -left-24 -top-32 h-80 w-80 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/20" />
-            <div className="absolute -right-24 top-1/4 h-96 w-96 rounded-full bg-violet-400/15 blur-3xl dark:bg-violet-500/15" />
-            <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-sky-400/15 blur-3xl dark:bg-cyan-500/10" />
-            <div className="absolute right-1/3 top-2/3 h-64 w-64 rounded-full bg-amber-300/15 blur-3xl dark:bg-amber-400/10" />
-          </div>
-          <Navbar />
-          <main className="flex-1">
-            <PageReveal>{children}</PageReveal>
-          </main>
-          <Footer />
-          <Whatsapp />
-        </div>
-      </ThemeProvider>
-    </NextIntlClientProvider>
+    <html
+      lang={locale}
+      dir={isRtl ? 'rtl' : 'ltr'}
+      suppressHydrationWarning
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} ${cairo.variable} ${notoNastaliq.variable}`}
+    >
+      <body className="font-sans antialiased">
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            enableSystem
+            disableTransitionOnChange
+            defaultTheme="system"
+          >
+            <div className="relative isolate flex min-h-screen flex-col">
+              <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+                <div className="absolute -left-24 -top-32 h-80 w-80 rounded-full bg-indigo-400/20 blur-3xl dark:bg-indigo-500/20" />
+                <div className="absolute -right-24 top-1/4 h-96 w-96 rounded-full bg-violet-400/15 blur-3xl dark:bg-violet-500/15" />
+                <div className="absolute bottom-0 left-1/4 h-80 w-80 rounded-full bg-sky-400/15 blur-3xl dark:bg-cyan-500/10" />
+                <div className="absolute right-1/3 top-2/3 h-64 w-64 rounded-full bg-amber-300/15 blur-3xl dark:bg-amber-400/10" />
+              </div>
+              <Navbar />
+              <main className="flex-1">
+                <PageReveal>{children}</PageReveal>
+              </main>
+              <Footer />
+              <Whatsapp />
+            </div>
+          </ThemeProvider>
+        </NextIntlClientProvider>
+      </body>
+    </html>
   );
 }

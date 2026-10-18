@@ -2,10 +2,11 @@
 
 import {useTranslations} from 'next-intl';
 import {FaWhatsapp} from 'react-icons/fa6';
+import {site} from '@/data/site';
 
 export default function Whatsapp() {
   const t = useTranslations('Whatsapp');
-  const phone = '923335942681';
+  const phone = site.whatsapp;
 
   return (
     <a
