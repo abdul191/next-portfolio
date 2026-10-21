@@ -32,7 +32,7 @@ export const projects: ProjectMeta[] = [
     slug: "rs-flavour",
     image: "smartphone",
     github: "",
-    live: "https://rsflavour.com/",
+    live: "",
     stack: ["Next.js", "React.js", "PostgreSQL", "Payment Gateway"]
   },
   {
