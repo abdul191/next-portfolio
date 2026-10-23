@@ -93,6 +93,14 @@
     "processEyebrow": "The Process",
     "processSubtitle": "A clear, collaborative path from the first conversation to launch — with no surprises along the way.",
     "cta": "Let's Talk",
+    "ctaTitle": "Have a project in mind?",
+    "ctaDescription": "Tell me what you're building and I'll help you choose the right approach.",
+    "stack": [
+      { "label": "Frontend", "tech": "React · Next.js · TypeScript" },
+      { "label": "Backend", "tech": "Node.js · Nest.js · Express" },
+      { "label": "Data", "tech": "PostgreSQL · MSSQL · MongoDB" },
+      { "label": "AI", "tech": "LLM · MCP · Workflows" }
+    ],
     "items": [
       {
         "title": "Full-Stack Web Development",
