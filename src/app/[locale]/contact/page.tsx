@@ -19,9 +19,5 @@ export default async function ContactPage({
   }
   setRequestLocale(locale);
 
-  return (
-    <div className="pt-8">
-      <ContactMe />
-    </div>
-  );
+  return <ContactMe variant="page" />;
 }

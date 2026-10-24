@@ -11,25 +11,36 @@ type GalleryImage = {
 
 export default function ProjectGallery({
   images,
-  label
+  label,
+  variant = 'default'
 }: {
   images: GalleryImage[];
   label: string;
+  variant?: 'default' | 'wide';
 }) {
   const [active, setActive] = useState(0);
   const current = images[Math.min(active, images.length - 1)];
+  const wide = variant === 'wide';
 
   if (!current) return null;
 
   return (
     <div>
-      <div className="glass relative overflow-hidden rounded-3xl p-2">
+      <div
+        className={`glass relative overflow-hidden rounded-3xl ${
+          wide ? 'p-2 sm:p-3' : 'p-2'
+        }`}
+      >
         <div className="relative overflow-hidden rounded-[1.4rem] bg-muted">
           <Image
             src={current.src}
             alt={current.alt}
-            sizes="(min-width: 1024px) 36rem, 100vw"
-            className="aspect-[3/2] w-full object-cover"
+            sizes="(min-width: 1024px) 72rem, 100vw"
+            className={`w-full object-cover ${
+              wide
+                ? 'aspect-[16/10] sm:aspect-[2/1]'
+                : 'aspect-[3/2]'
+            }`}
           />
         </div>
       </div>
@@ -38,7 +49,11 @@ export default function ProjectGallery({
         <div
           role="group"
           aria-label={label}
-          className="mt-3 flex gap-2 sm:gap-3"
+          className={
+            wide
+              ? 'mx-auto mt-4 flex max-w-3xl gap-2 sm:gap-3'
+              : 'mt-3 flex gap-2 sm:gap-3'
+          }
         >
           {images.map((image, i) => (
             <button

@@ -107,7 +107,7 @@ export default async function ProjectDetailPage({
   return (
     <div>
       {/* Intro */}
-      <section className="mx-auto w-full max-w-[84rem] px-4 py-6 sm:px-6 sm:py-16">
+      <section className="mx-auto w-full max-w-[84rem] px-4 pb-8 pt-4 sm:px-6 sm:pb-10 sm:pt-6">
         <Link
           href="/projects"
           className="animate-fade-up inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
@@ -117,37 +117,35 @@ export default async function ProjectDetailPage({
           {t('back')}
         </Link>
 
-        <div className="mt-8 grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-          <div className="space-y-5 text-center sm:space-y-6 lg:text-left">
-            {project.live && (
-              <span
-                className="animate-fade-up inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400"
-                style={{animationDelay: '0.05s'}}
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.5fr)_minmax(18rem,0.5fr)] lg:items-end lg:gap-8">
+          <div
+            className="animate-fade-up text-center lg:text-left"
+            style={{animationDelay: '0.05s'}}
+          >
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 lg:justify-start">
+              {project.live && (
+                <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-medium text-emerald-600 dark:text-emerald-400">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  </span>
+                  {t('liveBadge')}
                 </span>
-                {t('liveBadge')}
-              </span>
-            )}
-
-            <div
-              className="animate-fade-up space-y-3"
-              style={{animationDelay: '0.07s'}}
-            >
+              )}
               <p className="text-sm font-semibold uppercase tracking-widest text-primary">
                 {content.tagline}
               </p>
-              <h1 className="font-heading text-4xl font-extrabold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-                {content.title}
-              </h1>
             </div>
+            <h1 className="mt-3 max-w-4xl font-heading text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl lg:text-7xl">
+              {content.title}
+            </h1>
+          </div>
 
-            <div
-              className="animate-fade-up flex flex-wrap items-center justify-center gap-3 lg:justify-start"
-              style={{animationDelay: '0.14s'}}
-            >
+          <div
+            className="animate-fade-up flex flex-col items-center gap-4 lg:items-end"
+            style={{animationDelay: '0.12s'}}
+          >
+            <div className="flex flex-wrap items-center justify-center gap-3 lg:justify-end">
               {project.live && (
                 <a
                   href={project.live}
@@ -178,10 +176,7 @@ export default async function ProjectDetailPage({
               )}
             </div>
 
-            <div
-              className="animate-fade-up flex flex-wrap items-center justify-center gap-2 lg:justify-start"
-              style={{animationDelay: '0.28s'}}
-            >
+            <div className="flex flex-wrap items-center justify-center gap-2 lg:justify-end">
               {project.stack.map((tech) => (
                 <span key={tech} className="chip">
                   {tech}
@@ -189,101 +184,135 @@ export default async function ProjectDetailPage({
               ))}
             </div>
           </div>
+        </div>
 
+        <div
+          className="animate-fade-up relative mt-8"
+          style={{animationDelay: '0.18s'}}
+        >
           <div
-            className="animate-fade-up relative mx-auto w-full max-w-xl"
-            style={{animationDelay: '0.14s'}}
-          >
-            <div
-              aria-hidden
-              className={`absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br opacity-25 blur-2xl ${color}`}
-            />
+            aria-hidden
+            className={`absolute -inset-6 -z-10 rounded-[3rem] bg-gradient-to-br opacity-20 blur-3xl ${color}`}
+          />
+          <ProjectGallery
+            images={images}
+            label={t('galleryLabel')}
+            variant="wide"
+          />
+        </div>
 
-            <ProjectGallery images={images} label={t('galleryLabel')} />
-
-            <div className="glass animate-float absolute -start-3 -top-5 flex items-center gap-2 rounded-2xl px-4 py-3 sm:-start-6">
-              <span
-                className={`inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-md ${color}`}
-              >
-                {getProjectIcon(project.slug)}
-              </span>
-              <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-                  {t('stackLabel')}
-                </p>
-                <p className="text-xs font-semibold">
-                  {project.stack.slice(0, 2).join(' · ')}
-                </p>
-              </div>
+        <div
+          className="animate-fade-up mt-4"
+          style={{animationDelay: '0.24s'}}
+        >
+          <div className="glass rounded-2xl p-2">
+            <div className="flex flex-wrap items-center justify-between gap-2 px-3 pb-2 pt-1">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                {t('snapshotLabel')}
+              </p>
+              <span className="chip">{content.type}</span>
             </div>
+
+            <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {[
+                {label: t('roleLabel'), value: content.role},
+                {label: t('clientLabel'), value: content.client},
+                {label: t('locationLabel'), value: content.location},
+                {label: t('timelineLabel'), value: content.period}
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="rounded-xl border border-border/70 bg-background/40 px-3.5 py-3"
+                >
+                  <dt className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                    {item.label}
+                  </dt>
+                  <dd className="mt-1 text-sm font-semibold leading-snug">
+                    {item.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
       {/* Details */}
-      <Reveal className="container-section">
-        <div className="grid gap-6 lg:grid-cols-[1.35fr_1fr] lg:gap-8">
-          <div className="space-y-6">
-            <div className="glass rounded-3xl p-6 sm:p-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-                {content.type}
-              </p>
-              <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                {t('overviewLabel')}
-              </h2>
+      <Reveal className="mx-auto w-full max-w-[84rem] px-4 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10">
+        <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-8">
+          <div className="space-y-5">
+            <div className="glass relative overflow-hidden rounded-3xl p-6 sm:p-8">
+              <span
+                aria-hidden
+                className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${color}`}
+              />
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+                  {content.type}
+                </p>
+                <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+                  {t('overviewLabel')}
+                </h2>
+              </div>
               <p className="mt-4 leading-relaxed text-muted-foreground">
                 {content.overview}
               </p>
+            </div>
 
-              <dl className="mt-6 grid grid-cols-2 gap-3">
-                {[
-                  {label: t('roleLabel'), value: content.role},
-                  {label: t('clientLabel'), value: content.client},
-                  {label: t('locationLabel'), value: content.location},
-                  {label: t('timelineLabel'), value: content.period}
-                ].map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-xl border border-border/70 bg-background/40 px-3.5 py-2.5"
-                  >
-                    <dt className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
-                      {item.label}
-                    </dt>
-                    <dd className="mt-0.5 text-sm font-semibold">
-                      {item.value}
-                    </dd>
+            <div className="glass rounded-3xl p-6 sm:p-8">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-border/70 bg-background/40 p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-primary">
+                      {t('challengeLabel')}
+                    </h3>
+                    <span
+                      dir="ltr"
+                      className="font-mono text-[10px] font-semibold text-muted-foreground/40"
+                    >
+                      01
+                    </span>
                   </div>
-                ))}
-              </dl>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-border/70 bg-background/40 p-4">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    {t('challengeLabel')}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {content.problem}
                   </p>
                 </div>
-                <div className="rounded-2xl border border-border/70 bg-background/40 p-4">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-primary">
-                    {t('solutionLabel')}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+
+                <div className="rounded-2xl border border-border/70 bg-background/40 p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-primary">
+                      {t('solutionLabel')}
+                    </h3>
+                    <span
+                      dir="ltr"
+                      className="font-mono text-[10px] font-semibold text-muted-foreground/40"
+                    >
+                      02
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                     {content.solution}
                   </p>
                 </div>
               </div>
 
-              <div className="relative mt-3 overflow-hidden rounded-2xl border border-border/70 bg-background/40 p-4">
+              <div className="relative mt-4 overflow-hidden rounded-2xl border border-border/70 bg-background/40 p-5">
                 <span
                   aria-hidden
                   className={`absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r ${color}`}
                 />
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-primary">
-                  {t('outcomeLabel')}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-primary">
+                    {t('outcomeLabel')}
+                  </h3>
+                  <span
+                    dir="ltr"
+                    className="font-mono text-[10px] font-semibold text-muted-foreground/40"
+                  >
+                    03
+                  </span>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {content.outcome}
                 </p>
               </div>
@@ -293,10 +322,20 @@ export default async function ProjectDetailPage({
               <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
                 {t('featuresLabel')}
               </h2>
-              <ul className="mt-5 space-y-3">
+              <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                 {content.features.map((feature, i) => (
-                  <Stagger key={feature} index={i} delay={60}>
-                    <li className="flex items-start gap-3 rounded-2xl border border-border/70 bg-background/40 p-4">
+                  <Stagger
+                    key={feature}
+                    index={i}
+                    delay={60}
+                    className={`h-full ${
+                      content.features.length % 2 === 1 &&
+                      i === content.features.length - 1
+                        ? 'sm:col-span-2'
+                        : ''
+                    }`}
+                  >
+                    <li className="flex h-full items-start gap-3 rounded-2xl border border-border/70 bg-background/40 p-4">
                       <span
                         className={`mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br text-white shadow-sm ${color}`}
                       >
@@ -312,8 +351,8 @@ export default async function ProjectDetailPage({
             </div>
           </div>
 
-          <aside className="space-y-6">
-            <div className="glass rounded-3xl p-6 sm:p-8">
+          <aside className="space-y-4 self-start lg:sticky lg:top-24">
+            <div className="glass rounded-2xl p-5">
               <h2 className="text-lg font-bold tracking-tight">
                 {t('stackLabel')}
               </h2>
@@ -326,18 +365,57 @@ export default async function ProjectDetailPage({
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-6 text-center sm:p-8">
+            {(project.live || project.github) && (
+              <div className="glass rounded-2xl p-5">
+                <h2 className="text-lg font-bold tracking-tight">
+                  {t('projectLinks')}
+                </h2>
+                <div className="mt-4 space-y-2">
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between gap-3 rounded-xl border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm font-semibold transition-colors hover:border-emerald-400/50 hover:text-emerald-600 dark:hover:text-emerald-400"
+                    >
+                      <span className="inline-flex items-center gap-2">
+                        <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                        {t('liveDemo')}
+                      </span>
+                      <FaArrowRight className="h-3 w-3 rtl:rotate-180" />
+                    </a>
+                  )}
+
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between gap-3 rounded-xl border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm font-semibold transition-colors hover:border-primary/40 hover:text-primary"
+                    >
+                      <span className="inline-flex items-center gap-2">
+                        <FaGithub className="h-3.5 w-3.5" />
+                        {t('sourceCode')}
+                      </span>
+                      <FaArrowRight className="h-3 w-3 rtl:rotate-180" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            )}
+
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-card p-5 text-center">
               <span
                 aria-hidden
                 className="pointer-events-none absolute left-1/2 top-0 h-32 w-64 max-w-full -translate-x-1/2 rounded-full bg-gradient-to-r from-indigo-500/15 via-violet-500/10 to-blue-500/15 blur-3xl"
               />
-              <h2 className="relative text-xl font-bold tracking-tight">
+              <h2 className="relative text-lg font-bold tracking-tight">
                 {t('ctaTitle')}
               </h2>
               <p className="relative mt-2 text-sm leading-relaxed text-muted-foreground">
                 {t('ctaDescription')}
               </p>
-              <Link href="/contact" className="btn-primary relative mt-5">
+              <Link href="/contact" className="btn-primary relative mt-4">
                 {t('ctaButton')}
                 <FaArrowRight className="h-4 w-4 rtl:rotate-180" />
               </Link>
@@ -348,14 +426,23 @@ export default async function ProjectDetailPage({
 
       {/* Related projects */}
       {related.length > 0 && (
-        <Reveal className="container-section">
-          <div className="mb-8 space-y-2 text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-              {t('title')}
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {t('moreProjects')}
-            </h2>
+        <Reveal className="mx-auto w-full max-w-[84rem] px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10">
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary">
+                {t('title')}
+              </p>
+              <h2 className="mt-1 text-3xl font-bold tracking-tight sm:text-4xl">
+                {t('moreProjects')}
+              </h2>
+            </div>
+            <Link
+              href="/projects"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-primary"
+            >
+              {t('allProjects')}
+              <FaArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+            </Link>
           </div>
 
           <div className="grid gap-6 md:grid-cols-3">
