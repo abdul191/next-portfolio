@@ -1,52 +1,13 @@
 "use client";
 
 import {useEffect, useRef, useState} from 'react';
-import type {ReactElement} from 'react';
 import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
-import {
-  FaBoxes,
-  FaCode,
-  FaExternalLinkAlt,
-  FaFileSignature,
-  FaGlobe,
-  FaGithub,
-  FaLayerGroup,
-  FaShieldAlt,
-  FaShoppingCart,
-  FaTachometerAlt,
-  FaUserClock,
-  FaWarehouse
-} from 'react-icons/fa';
+import {FaExternalLinkAlt, FaGithub} from 'react-icons/fa';
 import {getProjectBySlug} from '@/data/projects';
+import {getProjectColor, getProjectIcon} from '@/data/project-ui';
 import {site} from '@/data/site';
 import Stagger from './Stagger';
-
-const ICON_MAP: Record<string, ReactElement> = {
-  "gtrack-esignature": <FaFileSignature className="h-5 w-5" />,
-  "groute-admin": <FaTachometerAlt className="h-5 w-5" />,
-  "trust-corners": <FaShieldAlt className="h-5 w-5" />,
-  "rs-flavour": <FaShoppingCart className="h-5 w-5" />,
-  "innovazy-suite": <FaLayerGroup className="h-5 w-5" />,
-  "knk-associates": <FaBoxes className="h-5 w-5" />,
-  "code-frenetics": <FaCode className="h-5 w-5" />,
-  "innovazy-website": <FaGlobe className="h-5 w-5" />,
-  "attendance-management": <FaUserClock className="h-5 w-5" />,
-  "warehouse-management": <FaWarehouse className="h-5 w-5" />
-};
-
-const COLOR_MAP: Record<string, string> = {
-  "gtrack-esignature": "from-indigo-500 to-blue-600",
-  "groute-admin": "from-violet-500 to-purple-600",
-  "trust-corners": "from-sky-500 to-blue-600",
-  "rs-flavour": "from-amber-500 to-orange-600",
-  "innovazy-suite": "from-cyan-500 to-sky-600",
-  "knk-associates": "from-emerald-500 to-teal-600",
-  "code-frenetics": "from-rose-500 to-pink-600",
-  "innovazy-website": "from-fuchsia-500 to-violet-600",
-  "attendance-management": "from-teal-500 to-emerald-600",
-  "warehouse-management": "from-slate-500 to-slate-700"
-};
 
 type ProjectCard = {
   title: string;
@@ -167,8 +128,8 @@ export default function Portfolio() {
           >
             {items.map((proj, i) => {
               const meta = getProjectBySlug(proj.slug);
-              const color = COLOR_MAP[proj.slug] ?? 'from-indigo-500 to-blue-600';
-              const icon = ICON_MAP[proj.slug] ?? <FaCode className="h-5 w-5" />;
+              const color = getProjectColor(proj.slug);
+              const icon = getProjectIcon(proj.slug);
               return (
                 <div
                   key={proj.title}
